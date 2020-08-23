@@ -3,14 +3,14 @@ if (process.env.NODE_ENV !== "production") {
   require("dotenv").config();
 }
 
+const bodyParser = require("body-parser");
 const http = require("http");
 const express = require("express");
 const airtable = require("airtable");
 
 const app = express();
 
-// you don't actually need body-parser to parse url encoded bodies these days. dope!
-app.use(express.urlencoded());
+app.use(bodyParser.json());
 
 app.get("/", (request, response) => {
   response.send(
@@ -24,14 +24,10 @@ const base = new airtable({ apiKey: process.env.AIRTABLE_API_KEY }).base(
 
 // add a new participant to the Airtable base
 app.post("/api/participants", (request, response) => {
-  // I feel like I must be doing something wrong here on the twilio side
-  // like probably I should be using application/json here instead of url encoding
-  // but hey, it works
-  const fields = JSON.parse(request.body.body);
   base("participants").create(
     [
       {
-        fields,
+        fields: request.body,
       },
     ],
     function (error) {
