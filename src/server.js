@@ -35,10 +35,11 @@ app.post("/api/participants", (request, response) => {
     ],
     function (error) {
       if (error) {
-        console.log("!!!!! NOPE", error);
+        console.log(error);
         response.status(500).send(error);
+      } else {
+        response.status(200).send("niiice 💟");
       }
-      response.status(200).send("niiice 💟");
     }
   );
 });
