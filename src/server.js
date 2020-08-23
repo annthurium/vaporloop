@@ -24,18 +24,19 @@ const base = new airtable({ apiKey: process.env.AIRTABLE_API_KEY }).base(
 
 // add a new participant to the Airtable base
 app.post("/api/participants", (request, response) => {
+  // I feel like I must be doing something wrong here on the twilio side
+  // like probably I should be using application/json here instead of url encoding
+  // but hey, it works
+  const fields = JSON.parse(request.body.body);
   base("participants").create(
     [
       {
-        fields: {
-          Phone: request.body.phoneNumber,
-          Name: request.body.name,
-        },
+        fields,
       },
     ],
     function (error) {
       if (error) {
-        console.log(error);
+        console.error("airtable request failed", error);
         response.status(500).send(error);
       } else {
         response.status(200).send("niiice 💟");
