@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/annthurium/vaporloop/issues"
   },
-  "homepage": "https://github.com/annthurium/vaporloop#readme"
+  "homepage": "https://github.com/annthurium/vaporloop#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
 }
