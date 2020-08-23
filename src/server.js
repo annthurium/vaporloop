@@ -19,8 +19,8 @@ app.post("/api/participants", (request, response) => {
 });
 
 // palindromes aren't loops but at least they take you back to the beginning.
-const portNumber = 8008;
+const portNumber = process.env.PORT || 8008;
 
-http.createServer(app).listen(8008, () => {
+http.createServer(app).listen(portNumber, () => {
   console.log(`express server listening on port ${portNumber}`);
 });
