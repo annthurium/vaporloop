@@ -3,14 +3,14 @@ if (process.env.NODE_ENV !== "production") {
   require("dotenv").config();
 }
 
+const bodyParser = require("body-parser");
 const http = require("http");
 const express = require("express");
 const airtable = require("airtable");
 
 const app = express();
 
-// you don't actually need body-parser to parse url encoded bodies these days. dope!
-app.use(express.urlencoded());
+app.use(bodyParser.json());
 
 app.get("/", (request, response) => {
   response.send(
@@ -27,15 +27,12 @@ app.post("/api/participants", (request, response) => {
   base("participants").create(
     [
       {
-        fields: {
-          Phone: request.body.phoneNumber,
-          Name: request.body.name,
-        },
+        fields: request.body,
       },
     ],
     function (error) {
       if (error) {
-        console.log(error);
+        console.error("airtable request failed", error);
         response.status(500).send(error);
       } else {
         response.status(200).send("niiice 💟");
