@@ -12,11 +12,7 @@ const app = express();
 
 app.use(bodyParser.json());
 
-app.get("/", (request, response) => {
-  response.send(
-    "hello world. time is a flat circle. the end is the beginning is the end."
-  );
-});
+app.use(express.static(__dirname + "/public"));
 
 const base = new airtable({ apiKey: process.env.AIRTABLE_API_KEY }).base(
   process.env.AIRTABLE_BASE_ID
