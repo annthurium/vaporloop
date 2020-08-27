@@ -14,7 +14,7 @@ app.use(bodyParser.json());
 
 app.get("/", (request, response) => {
   response.send(
-    "hello world. time is a flat circle. the end is the beginning is the end."
+    "hello world. goodbye world. time is a flat circle. the end is the beginning is the end."
   );
 });
 
