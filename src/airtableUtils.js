@@ -18,33 +18,14 @@ const base = new airtable({ apiKey: process.env.AIRTABLE_API_KEY }).base(
 // i don't knowwwwww
 // i guess we can keep people around just to have a historical record
 
-function getAllSubscribedParticipants(base, tableName) {
-  return base(tableName)
-    .select({
-      view: "Grid view",
-    })
-    .eachPage(
-      function page(records, fetchNextPage) {
-        // toDo: filter unsubscribed participants
-
-        records.forEach(function (record) {
-          console.log("Retrieved", record.get("name"), record.get("phone"));
-        });
-
-        // To fetch the next page of records, call `fetchNextPage`.
-        // If there are more records, `page` will get called again.
-        // If there are no more records, `done` will get called.
-        fetchNextPage();
-      },
-      function done(err) {
-        if (err) {
-          console.error(err);
-          return;
-        }
-      }
-    );
+async function getAllSubscribedParticipants(base, tableName) {
+  // toDo: filter unsubscribed participants
+  const records = await base(tableName).select().all();
+  return records;
 }
 
 (async function () {
-  await getAllSubscribedParticipants(base, "test");
+  const participants = await getAllSubscribedParticipants(base, "test");
+
+  console.log("participants", participants);
 })();
