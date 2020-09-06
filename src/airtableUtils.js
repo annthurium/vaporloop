@@ -1,16 +1,23 @@
-if (process.env.NODE_ENV !== "production") {
-  // note: dotenv won't override existing environment variables
-  require("dotenv").config();
-}
-
 const airtable = require("airtable");
 
-// do i need to memoize this const?
-// idk how computationally expensive it is, or if having multiple base instances causes problems.
-// it probably doesn't matter and i am over thinking it 🤷🏻‍♂️
-const base = new airtable({ apiKey: process.env.AIRTABLE_API_KEY }).base(
-  process.env.AIRTABLE_BASE_ID
-);
+// to do:
+// add function for writing an unsubscribe to airtable
+// add an api endpoint for the same, and hook it up to the function
+// consider how code is shared between utils, server, and scripts
+// rip out dotenv related code
+// will implement group chat in a separate / future PR
+
+// memoize this because why the fuck not
+//  THERE CAN BE ONLY ONE BASE
+let base = null;
+const getBase = () => {
+  base
+    ? null
+    : (base = new airtable({ apiKey: process.env.AIRTABLE_API_KEY }).base(
+        process.env.AIRTABLE_BASE_ID
+      ));
+  return base;
+};
 
 // should we have the table name set as an environment variable?
 // passing it in is more ~ f U n C T i O N a L ~ I suppose
@@ -35,9 +42,4 @@ async function getAllSubscribedParticipants(base, tableName) {
   return participants;
 }
 
-(async function () {
-  const participants = await getAllSubscribedParticipants(base, "test");
-  for (let [key, value] of participants) {
-    console.log(key, value);
-  }
-})();
+module.exports = { getAllSubscribedParticipants, getBase, tableName: "test" };
