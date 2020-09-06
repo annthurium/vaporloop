@@ -1,7 +1,9 @@
 const airtable = require("airtable");
 
+// TODO: change this before you merge!!
+const tableName = "test";
+
 // to do:
-// add function for writing an unsubscribe to airtable
 // add an api endpoint for the same, and hook it up to the function
 // consider how code is shared between utils, server, and scripts
 // rip out dotenv related code
@@ -26,6 +28,8 @@ const getBase = () => {
 async function getAllSubscribedParticipants(base, tableName) {
   const participants = new Map();
 
+  // TODO: i am not sure .all will work if we get above 100 participants
+  // if we get that far let's make sure to test it out
   const records = await base(tableName).select().all();
   records.map((record) => {
     // airtable doesn't have a boolean field type, which is weaksauce
@@ -36,10 +40,36 @@ async function getAllSubscribedParticipants(base, tableName) {
       // using the phone number as a key 'cuz it's guaranteed unique
       // just like you, you special snowflake ❄️
       participants.set(record.fields.phone, record.fields.name);
-      console.log(record.fields);
     }
   });
   return participants;
 }
 
-module.exports = { getAllSubscribedParticipants, getBase, tableName: "test" };
+async function unsubscribeParticipant(phoneNumber, base) {
+  // remove participant from map?
+  // (maybe map should be a singleton?) or maybe just let the server deal with that
+  // fetch existing record(s) because we need the IDs
+  // there could be multiple because people can sign up twice
+
+  const records = await base(tableName).select().all();
+  // does map handle async stuff ok? I hate JS sometimes
+
+  records.map(async (record) => {
+    if (record.fields.phone === phoneNumber) {
+      await base(tableName).update(
+        record.id,
+        { unsubscribed: true },
+        (error, record) => {
+          if (error) {
+            console.error(error);
+          } else {
+            console.log(`${record.fields.name} has been unsubscribed`);
+            // todo: should we message the person letting them know their unsubscribe was successful?
+          }
+        }
+      );
+    }
+  });
+}
+
+module.exports = { getAllSubscribedParticipants, getBase, tableName };
