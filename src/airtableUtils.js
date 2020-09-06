@@ -12,20 +12,32 @@ const base = new airtable({ apiKey: process.env.AIRTABLE_API_KEY }).base(
   process.env.AIRTABLE_BASE_ID
 );
 
-// other questions:
-// to remove participants, for unsubscribe purposes, do we actually remove them from the base?
-// or do we want to keep them around but add a column for deletion?
-// i don't knowwwwww
-// i guess we can keep people around just to have a historical record
+// should we have the table name set as an environment variable?
+// passing it in is more ~ f U n C T i O N a L ~ I suppose
 
+// returns a map of {phone, name} for all subscribed participants
 async function getAllSubscribedParticipants(base, tableName) {
-  // toDo: filter unsubscribed participants
+  const participants = new Map();
+
   const records = await base(tableName).select().all();
-  return records;
+  records.map((record) => {
+    // airtable doesn't have a boolean field type, which is weaksauce
+    // it has a "checkbox". ok sure that works.
+    // but. the api only returns the property for rows where the box is checked.
+
+    if (!record.fields.unsubscribed) {
+      // using the phone number as a key 'cuz it's guaranteed unique
+      // just like you, you special snowflake ❄️
+      participants.set(record.fields.phone, record.fields.name);
+      console.log(record.fields);
+    }
+  });
+  return participants;
 }
 
 (async function () {
   const participants = await getAllSubscribedParticipants(base, "test");
-
-  console.log("participants", participants);
+  for (let [key, value] of participants) {
+    console.log(key, value);
+  }
 })();
