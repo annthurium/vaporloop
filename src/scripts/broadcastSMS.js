@@ -3,7 +3,7 @@ const {
   getAllSubscribedParticipants,
   getBase,
   tableName,
-} = require("../airtableUtils");
+} = require("../utils");
 
 const twilioClient = twilio(
   process.env.TWILIO_ACCOUNT_SID,

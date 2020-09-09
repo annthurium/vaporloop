@@ -1,3 +1,4 @@
+// like any good utils file, this is basically the junk drawer of the application
 const airtable = require("airtable");
 
 // TODO: change this before you merge!!

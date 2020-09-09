@@ -6,11 +6,7 @@ if (process.env.NODE_ENV !== "production") {
 const bodyParser = require("body-parser");
 const http = require("http");
 const express = require("express");
-const {
-  getBase,
-  tableName,
-  unsubscribeParticipant,
-} = require("./airtableUtils");
+const { getBase, tableName, unsubscribeParticipant } = require("./utils");
 
 const app = express();
 
