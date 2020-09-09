@@ -9,8 +9,6 @@ const twilio = require("twilio");
 const tableName = "test";
 
 // to do:
-// rip out dotenv related code
-// TEST SUBSCRIBE FLOW TO MAKE SURE IT STILL WORKS
 // will implement group chat in a separate / future PR
 
 // memoize this because why the fuck not
@@ -25,7 +23,7 @@ const getBase = () => {
   return base;
 };
 
-// returns a map of {"+15555555", {name: 'tilde', airtableRecordId: '12345'} for all subscribed participants
+// returns a map of {"+15556667777", {name: 'tilde', airtableRecordId: '12345'} for all subscribed participants
 // phone numbers as always in e.164 format cuz I've got STANDARDS ok
 async function getAllSubscribedParticipants(base, tableName) {
   const participants = new Map();

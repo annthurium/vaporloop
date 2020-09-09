@@ -18,7 +18,7 @@ const base = getBase();
 
 // add a new participant to the Airtable base
 app.post("/api/participants", (request, response) => {
-  base("participants").create(
+  base(tableName).create(
     [
       {
         fields: request.body,
