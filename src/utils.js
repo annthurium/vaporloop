@@ -1,5 +1,6 @@
 // like any good utils file, this is basically the junk drawer of the application
 const airtable = require("airtable");
+const twilio = require("twilio");
 
 // TODO: change this before you merge!!
 // this const is so that we can easily read/write from a test table under development
@@ -50,6 +51,20 @@ async function getAllSubscribedParticipants(base, tableName) {
   return participants;
 }
 
+const twilioNumber = "+1 415 430 9656";
+const twilioClient = twilio(
+  process.env.TWILIO_ACCOUNT_SID,
+  process.env.TWILIO_AUTH_TOKEN
+);
+
+async function sendSingleSMS(toNumber, messageBody) {
+  await twilioClient.messages.create({
+    to: toNumber,
+    from: twilioNumber,
+    body: messageBody,
+  });
+}
+
 async function unsubscribeParticipant(phoneNumber, base, participantMap) {
   if (!participantMap) {
     // the server will have a cached version of the participant map
@@ -66,12 +81,17 @@ async function unsubscribeParticipant(phoneNumber, base, participantMap) {
   await base(tableName).update(
     airtableRecordId,
     { unsubscribed: true },
-    (error, record) => {
+    async (error, record) => {
       if (error) {
         console.error(error);
       } else {
+        participantMap.delete(phoneNumber);
         console.log(`${record.fields.name} has been unsubscribed`);
-        // todo: message the person letting them know their unsubscribe was successful?
+        const participantName = participant["name"];
+        await sendSingleSMS(
+          phoneNumber,
+          `Thanks ${participantName}, you have been unsubscribed and we won't message you again.`
+        );
       }
     }
   );
