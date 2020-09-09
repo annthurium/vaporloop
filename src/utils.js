@@ -6,10 +6,7 @@ const twilio = require("twilio");
 // this const is so that we can easily read/write from a test table under development
 // and not mess with "prod" data.
 // change this const to "participants" when you're ready to party.
-const tableName = "test";
-
-// to do:
-// will implement group chat in a separate / future PR
+const tableName = "participants";
 
 // memoize this because why the fuck not
 //  THERE CAN BE ONLY ONE BASE
@@ -69,9 +66,11 @@ async function unsubscribeParticipant(phoneNumber, base, participantMap) {
     participantMap = await getAllSubscribedParticipants(base, tableName);
   }
 
-  const participant = participantMap.get(phoneNumber);
+  const trimmedNumber = phoneNumber.trim();
+
+  const participant = participantMap.get(trimmedNumber);
   if (!participant) {
-    throw new Error(`participant ${phoneNumber} not found`);
+    throw new Error(`participant ${trimmedNumber} not found`);
   }
 
   const airtableRecordId = participant["airtableRecordId"];
@@ -83,12 +82,12 @@ async function unsubscribeParticipant(phoneNumber, base, participantMap) {
       if (error) {
         console.error(error);
         await sendSingleSMS(
-          phoneNumber,
+          trimmedNumber,
           "sorry, the unsubscribe failed. Mind trying again in a few minutes?"
         );
         throw error;
       } else {
-        participantMap.delete(phoneNumber);
+        participantMap.delete(trimmedNumber);
         console.log(`${record.fields.name} has been unsubscribed`);
         const participantName = participant["name"];
         await sendSingleSMS(
