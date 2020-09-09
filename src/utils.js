@@ -11,7 +11,6 @@ const tableName = "test";
 // to do:
 // rip out dotenv related code
 // TEST SUBSCRIBE FLOW TO MAKE SURE IT STILL WORKS
-// test error handling in case of an unsuccessful unsubscribe
 // will implement group chat in a separate / future PR
 
 // memoize this because why the fuck not
