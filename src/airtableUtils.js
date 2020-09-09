@@ -1,10 +1,12 @@
 const airtable = require("airtable");
 
 // TODO: change this before you merge!!
+// this const is so that we can easily read/write from a test table under development
+// and not mess with "prod" data.
+// change this const to "participants" when you're ready to party.
 const tableName = "test";
 
 // to do:
-// consider how code is shared between utils, server, and scripts
 // rip out dotenv related code
 // TEST SUBSCRIBE FLOW TO MAKE SURE IT STILL WORKS
 // test error handling in case of an unsuccessful unsubscribe
@@ -22,10 +24,8 @@ const getBase = () => {
   return base;
 };
 
-// should we have the table name set as an environment variable?
-// passing it in is more ~ f U n C T i O N a L ~ I suppose
-
-// returns a map of {phone, {name: 'tilde', airtableRecordId: '12345'} for all subscribed participants
+// returns a map of {"+15555555", {name: 'tilde', airtableRecordId: '12345'} for all subscribed participants
+// phone numbers as always in e.164 format cuz I've got STANDARDS ok
 async function getAllSubscribedParticipants(base, tableName) {
   const participants = new Map();
 
