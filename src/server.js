@@ -38,12 +38,12 @@ app.post("/api/participants", (request, response) => {
 // this isn't proper RESTful API design
 // but you can only GET and POST with twilio studio anyway
 // and I'm kind of out of fucks at the moment so YOLO
-app.post("/api/participants/unsubscribe", async (request, response) => {
+app.post("/api/participants/unsubscribe", async (request, response, next) => {
   try {
     await unsubscribeParticipant(request.body.phone, base);
   } catch (error) {
     console.error("airtable request failed", error);
-    response.status(500).send(error);
+    return next(error);
   }
   response.status(200).send("successful unsubscribe");
 });

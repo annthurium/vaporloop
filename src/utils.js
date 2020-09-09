@@ -73,10 +73,11 @@ async function unsubscribeParticipant(phoneNumber, base, participantMap) {
   }
 
   const participant = participantMap.get(phoneNumber);
-  const airtableRecordId = participant["airtableRecordId"];
-  if (!airtableRecordId) {
+  if (!participant) {
     throw new Error(`participant ${phoneNumber} not found`);
   }
+
+  const airtableRecordId = participant["airtableRecordId"];
 
   await base(tableName).update(
     airtableRecordId,
@@ -84,6 +85,11 @@ async function unsubscribeParticipant(phoneNumber, base, participantMap) {
     async (error, record) => {
       if (error) {
         console.error(error);
+        await sendSingleSMS(
+          phoneNumber,
+          "sorry, the unsubscribe failed. Mind trying again in a few minutes?"
+        );
+        throw error;
       } else {
         participantMap.delete(phoneNumber);
         console.log(`${record.fields.name} has been unsubscribed`);
