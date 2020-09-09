@@ -17,11 +17,7 @@ Install the dependencies:
 npm install
 ```
 
-Copy the `.env.example` file to `.env`.
-
-```bash
-cp .env.example .env
-```
+Replace the variables in `.env.example` with real values, and set them as variables in your local environment.
 
 Fill in your Twilio Account SID and auth token, which cam be found in the [Twilio console](https://www.twilio.com/console/) in the `.env` file.
 

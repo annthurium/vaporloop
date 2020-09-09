@@ -6,7 +6,7 @@ if (process.env.NODE_ENV !== "production") {
 const bodyParser = require("body-parser");
 const http = require("http");
 const express = require("express");
-const airtable = require("airtable");
+const { getBase, tableName, unsubscribeParticipant } = require("./utils");
 
 const app = express();
 
@@ -14,13 +14,11 @@ app.use(bodyParser.json());
 
 app.use(express.static(__dirname + "/public"));
 
-const base = new airtable({ apiKey: process.env.AIRTABLE_API_KEY }).base(
-  process.env.AIRTABLE_BASE_ID
-);
+const base = getBase();
 
 // add a new participant to the Airtable base
 app.post("/api/participants", (request, response) => {
-  base("participants").create(
+  base(tableName).create(
     [
       {
         fields: request.body,
@@ -35,6 +33,19 @@ app.post("/api/participants", (request, response) => {
       }
     }
   );
+});
+
+// this isn't proper RESTful API design
+// but you can only GET and POST with twilio studio anyway
+// and I'm kind of out of fucks at the moment so YOLO
+app.post("/api/participants/unsubscribe", async (request, response, next) => {
+  try {
+    await unsubscribeParticipant(request.body.phone, base);
+  } catch (error) {
+    console.error("airtable request failed", error);
+    return next(error);
+  }
+  response.status(200).send("successful unsubscribe");
 });
 
 // palindromes aren't loops but at least they take you back to the beginning.
