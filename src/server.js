@@ -39,9 +39,6 @@ app.post("/api/participants", (request, response) => {
 });
 
 app.post("/api/messages", async (request, response, next) => {
-  console.log(request.body);
-  response.status(200).send("successful unsubscribe");
-
   if (!subscribedParticipants) {
     subscribedParticipants = await getAllSubscribedParticipants(
       base,
@@ -49,26 +46,26 @@ app.post("/api/messages", async (request, response, next) => {
     );
   }
   const messageBody = request.body.Body;
-  // should this be .contains? probablyyyyyyy
-  if (messageBody.toLowerCase() === "unsubscribe") {
-    try {
+  try {
+    // TODO: should this be .contains? probablyyyyyyy
+    if (messageBody.toLowerCase() === "unsubscribe") {
       await unsubscribeParticipant(
         request.body.phone,
         base,
         subscribedParticipants
       );
-    } catch (error) {
-      console.error("unsubscribe request failed", error);
-      return next(error);
+      response.status(200).send("successful unsubscribe");
+    } else {
+      await broadcastGroupChatMessage(
+        request.body.From,
+        messageBody,
+        subscribedParticipants,
+        request.body.MediaUrl0
+      );
     }
-    response.status(200).send("successful unsubscribe");
-  } else {
-    await broadcastGroupChatMessage(
-      request.body.From,
-      messageBody,
-      subscribedParticipants,
-      request.body.MediaUrl0
-    );
+  } catch (error) {
+    console.error(error);
+    return /* thank u, */ next(error);
   }
 });
 

@@ -64,10 +64,9 @@ async function sendSingleSMS(toNumber, messageBody, mediaURL = null) {
 }
 
 // TODO:
-// test error handling
-// error handling for send SMS functionality?
 // test subscribe flow to make sure body-parser hasn't fucked anything up
-// end to end testing? (we probably want to do this with at least 3 actual phone numbers)
+// tackle misc TODOs and cleanup littering this code base like tiny weeds
+// end to end testing? (we probably want to do this with at least 3 actual phone numbers + ngrok, before merging)
 
 async function broadcastGroupChatMessage(
   senderPhoneNumber,
