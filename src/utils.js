@@ -61,6 +61,12 @@ async function sendSingleSMS(toNumber, messageBody) {
   // });
 }
 
+// TODO:
+// test error handling
+// error handling for send SMS functionality?
+// test subscribe flow to make sure body-parser hasn't fucked anything up
+// end to end testing? (we probably want to do this with at least 3 actual phone numbers)
+
 async function broadcastGroupChatMessage(
   senderPhoneNumber,
   messageBody,
@@ -143,6 +149,7 @@ async function unsubscribeParticipant(phoneNumber, base, participantMap) {
 // })();
 
 module.exports = {
+  broadcastGroupChatMessage,
   getAllSubscribedParticipants,
   getBase,
   tableName,

@@ -1,20 +1,23 @@
-if (process.env.NODE_ENV !== "production") {
-  // note: dotenv won't override existing environment variables
-  require("dotenv").config();
-}
-
 const bodyParser = require("body-parser");
 const http = require("http");
 const express = require("express");
-const { getBase, tableName, unsubscribeParticipant } = require("./utils");
+const {
+  broadcastGroupChatMessage,
+  getAllSubscribedParticipants,
+  getBase,
+  tableName,
+  unsubscribeParticipant,
+} = require("./utils");
 
 const app = express();
 
+app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
 app.use(express.static(__dirname + "/public"));
 
 const base = getBase();
+let subscribedParticipants;
 
 // add a new participant to the Airtable base
 app.post("/api/participants", (request, response) => {
@@ -35,12 +38,48 @@ app.post("/api/participants", (request, response) => {
   );
 });
 
+app.post("/api/messages", async (request, response, next) => {
+  if (!subscribedParticipants) {
+    subscribedParticipants = await getAllSubscribedParticipants(
+      base,
+      tableName
+    );
+  }
+  const messageBody = request.body.Body;
+  // should this be .contains? probablyyyyyyy
+  if (messageBody.toLowerCase() === "unsubscribe") {
+    try {
+      await unsubscribeParticipant(
+        request.body.phone,
+        base,
+        subscribedParticipants
+      );
+    } catch (error) {
+      console.error("unsubscribe request failed", error);
+      return next(error);
+    }
+    response.status(200).send("successful unsubscribe");
+  } else {
+    // senderPhoneNumber, messageBody, participantMap;
+    await broadcastGroupChatMessage(
+      request.body.From,
+      messageBody,
+      subscribedParticipants
+    );
+  }
+});
+
 // this isn't proper RESTful API design
 // but you can only GET and POST with twilio studio anyway
 // and I'm kind of out of fucks at the moment so YOLO
 app.post("/api/participants/unsubscribe", async (request, response, next) => {
+  // TODO: get the subscribed participants
   try {
-    await unsubscribeParticipant(request.body.phone, base);
+    await unsubscribeParticipant(
+      request.body.phone,
+      base,
+      subscribedParticipants
+    );
   } catch (error) {
     console.error("airtable request failed", error);
     return next(error);
