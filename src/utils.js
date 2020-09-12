@@ -51,14 +51,16 @@ const twilioClient = twilio(
   process.env.TWILIO_AUTH_TOKEN
 );
 
-async function sendSingleSMS(toNumber, messageBody) {
+async function sendSingleSMS(toNumber, messageBody, mediaURL = null) {
   // TODO: uncomment when you're done testing but no need to spam people right now
-  await console.log(toNumber, messageBody);
-  // await twilioClient.messages.create({
-  //   to: toNumber,
-  //   from: twilioNumber,
-  //   body: messageBody,
-  // });
+  const parameters = { to: toNumber, from: twilioNumber, body: messageBody };
+  if (mediaURL !== null) {
+    // ugh why doesn't twilio capitalize URL correctly in their API?
+    // if only I knew somebody who worked there so I could complain
+    parameters.mediaUrl = [mediaURL];
+  }
+  await console.log("!!!!! PARAMETERS", parameters);
+  // await twilioClient.messages.create({ parameters });
 }
 
 // TODO:
@@ -70,7 +72,8 @@ async function sendSingleSMS(toNumber, messageBody) {
 async function broadcastGroupChatMessage(
   senderPhoneNumber,
   messageBody,
-  participantMap
+  participantMap,
+  mediaURL = null
 ) {
   const trimmedNumber = senderPhoneNumber.trim();
 
@@ -88,7 +91,7 @@ async function broadcastGroupChatMessage(
       // we don't need to send the sender a copy of their own message.
       continue;
     } else {
-      await sendSingleSMS(phoneNumber, messageBodyWithName);
+      await sendSingleSMS(phoneNumber, messageBodyWithName, mediaURL);
     }
   }
 }
@@ -132,21 +135,6 @@ async function unsubscribeParticipant(phoneNumber, base, participantMap) {
     }
   );
 }
-
-// just for testing, will remove before merging
-// (async function () {
-//   const subscribedParticipants = await getAllSubscribedParticipants(
-//     getBase(),
-//     tableName
-//   );
-
-//   // maybe broadcastGroupChatMessage is a better name??
-//   await broadcastGroupChatMessage(
-//     "+12345678901",
-//     "you rock",
-//     subscribedParticipants
-//   );
-// })();
 
 module.exports = {
   broadcastGroupChatMessage,

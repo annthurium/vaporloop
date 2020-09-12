@@ -39,6 +39,9 @@ app.post("/api/participants", (request, response) => {
 });
 
 app.post("/api/messages", async (request, response, next) => {
+  console.log(request.body);
+  response.status(200).send("successful unsubscribe");
+
   if (!subscribedParticipants) {
     subscribedParticipants = await getAllSubscribedParticipants(
       base,
@@ -60,11 +63,11 @@ app.post("/api/messages", async (request, response, next) => {
     }
     response.status(200).send("successful unsubscribe");
   } else {
-    // senderPhoneNumber, messageBody, participantMap;
     await broadcastGroupChatMessage(
       request.body.From,
       messageBody,
-      subscribedParticipants
+      subscribedParticipants,
+      request.body.MediaUrl0
     );
   }
 });
