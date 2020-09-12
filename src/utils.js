@@ -6,7 +6,7 @@ const twilio = require("twilio");
 // this const is so that we can easily read/write from a test table under development
 // and not mess with "prod" data.
 // change this const to "participants" when you're ready to party.
-const tableName = "participants";
+const tableName = "test";
 
 // memoize this because why the fuck not
 //  THERE CAN BE ONLY ONE BASE
@@ -52,11 +52,39 @@ const twilioClient = twilio(
 );
 
 async function sendSingleSMS(toNumber, messageBody) {
-  await twilioClient.messages.create({
-    to: toNumber,
-    from: twilioNumber,
-    body: messageBody,
-  });
+  // TODO: uncomment when you're done testing but no need to spam people right now
+  await console.log(toNumber, messageBody);
+  // await twilioClient.messages.create({
+  //   to: toNumber,
+  //   from: twilioNumber,
+  //   body: messageBody,
+  // });
+}
+
+async function broadcastGroupChatMessage(
+  senderPhoneNumber,
+  messageBody,
+  participantMap
+) {
+  const trimmedNumber = senderPhoneNumber.trim();
+
+  const participant = participantMap.get(trimmedNumber);
+  if (!participant) {
+    throw new Error(`participant ${trimmedNumber} not found`);
+  }
+
+  const participantName = participant["name"];
+
+  const messageBodyWithName = `${participantName}: ${messageBody}`;
+
+  for (const phoneNumber of participantMap.keys()) {
+    if (phoneNumber === trimmedNumber) {
+      // we don't need to send the sender a copy of their own message.
+      continue;
+    } else {
+      await sendSingleSMS(phoneNumber, messageBodyWithName);
+    }
+  }
 }
 
 async function unsubscribeParticipant(phoneNumber, base, participantMap) {
@@ -98,6 +126,21 @@ async function unsubscribeParticipant(phoneNumber, base, participantMap) {
     }
   );
 }
+
+// just for testing, will remove before merging
+// (async function () {
+//   const subscribedParticipants = await getAllSubscribedParticipants(
+//     getBase(),
+//     tableName
+//   );
+
+//   // maybe broadcastGroupChatMessage is a better name??
+//   await broadcastGroupChatMessage(
+//     "+12345678901",
+//     "you rock",
+//     subscribedParticipants
+//   );
+// })();
 
 module.exports = {
   getAllSubscribedParticipants,
