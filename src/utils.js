@@ -26,7 +26,7 @@ const getBase = () => {
 let subscribedParticipants = null;
 
 // returns a map of {"+15556667777", {name: 'tilde', airtableRecordId: '12345'} for all subscribed participants
-// phone numbers as always in e.164 format cuz I've got STANDARDS ok
+// phone numbers in e.164 format cuz I've got STANDARDS
 const getAllSubscribedParticipants = async (base, tableName) => {
   if (subscribedParticipants !== null) {
     return subscribedParticipants;
@@ -34,6 +34,7 @@ const getAllSubscribedParticipants = async (base, tableName) => {
   const participants = new Map();
 
   // TODO: i am not sure .all will work if we get above 100 participants
+  // airtable docs says that's the max page size??
   // if we get that far let's make sure to test it out
   const records = await base(tableName).select().all();
   records.map((record) => {
@@ -73,9 +74,7 @@ async function sendSingleSMS(toNumber, messageBody, mediaURL = null) {
 }
 
 // TODO:
-// tackle misc TODOs and cleanup littering this code base like tiny weeds
-// do we want to close subscriptions after everyone arrives? Probably we do.
-// end to end testing? (we probably want to do this with at least 3 actual phone numbers + ngrok, before merging)
+// end to end testing with at least 3 actual phone numbers + ngrok, before merging
 
 async function broadcastGroupChatMessage(
   senderPhoneNumber,
@@ -87,6 +86,8 @@ async function broadcastGroupChatMessage(
 
   const participant = participantMap.get(trimmedNumber);
   if (!participant) {
+    // todo: this probably shouldn't be a thrown error
+    // if people text the group chat after they're unsubscribed, just tell them they can't.
     throw new Error(`participant ${trimmedNumber} not found`);
   }
 
