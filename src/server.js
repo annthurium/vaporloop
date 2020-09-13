@@ -17,7 +17,6 @@ app.use(bodyParser.json());
 app.use(express.static(__dirname + "/public"));
 
 const base = getBase();
-let subscribedParticipants;
 
 // add a new participant to the Airtable base
 app.post("/api/participants", (request, response) => {
@@ -39,18 +38,17 @@ app.post("/api/participants", (request, response) => {
 });
 
 app.post("/api/messages", async (request, response, next) => {
-  if (!subscribedParticipants) {
-    subscribedParticipants = await getAllSubscribedParticipants(
-      base,
-      tableName
-    );
-  }
+  const subscribedParticipants = await getAllSubscribedParticipants(
+    base,
+    tableName
+  );
+
   const messageBody = request.body.Body;
   try {
     // TODO: should this be .contains? probablyyyyyyy
     if (messageBody.toLowerCase() === "unsubscribe") {
       await unsubscribeParticipant(
-        request.body.phone,
+        request.body.From,
         base,
         subscribedParticipants
       );
@@ -70,10 +68,14 @@ app.post("/api/messages", async (request, response, next) => {
 });
 
 // this isn't proper RESTful API design
-// but you can only GET and POST with twilio studio anyway
+// but you can only GET and POST with twilio anyway
 // and I'm kind of out of fucks at the moment so YOLO
 app.post("/api/participants/unsubscribe", async (request, response, next) => {
-  // TODO: get the subscribed participants
+  const subscribedParticipants = await getAllSubscribedParticipants(
+    base,
+    tableName
+  );
+
   try {
     await unsubscribeParticipant(
       request.body.phone,

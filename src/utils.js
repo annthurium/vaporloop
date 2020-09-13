@@ -20,9 +20,17 @@ const getBase = () => {
   return base;
 };
 
+// the revolution will not be memoized
+// i mean will! it will be memoized!
+// for real tho, lookin up all the participants is expensive.
+let subscribedParticipants = null;
+
 // returns a map of {"+15556667777", {name: 'tilde', airtableRecordId: '12345'} for all subscribed participants
 // phone numbers as always in e.164 format cuz I've got STANDARDS ok
-async function getAllSubscribedParticipants(base, tableName) {
+const getAllSubscribedParticipants = async (base, tableName) => {
+  if (subscribedParticipants !== null) {
+    return subscribedParticipants;
+  }
   const participants = new Map();
 
   // TODO: i am not sure .all will work if we get above 100 participants
@@ -42,8 +50,9 @@ async function getAllSubscribedParticipants(base, tableName) {
       });
     }
   });
+  subscribedParticipants = participants;
   return participants;
-}
+};
 
 const twilioNumber = "+1 415 430 9656";
 const twilioClient = twilio(
@@ -64,7 +73,6 @@ async function sendSingleSMS(toNumber, messageBody, mediaURL = null) {
 }
 
 // TODO:
-// test subscribe flow to make sure body-parser hasn't fucked anything up
 // tackle misc TODOs and cleanup littering this code base like tiny weeds
 // end to end testing? (we probably want to do this with at least 3 actual phone numbers + ngrok, before merging)
 
