@@ -62,19 +62,14 @@ const twilioClient = twilio(
 );
 
 async function sendSingleSMS(toNumber, messageBody, mediaURL = null) {
-  // TODO: uncomment when you're done testing but no need to spam people right now
   const parameters = { to: toNumber, from: twilioNumber, body: messageBody };
   if (mediaURL !== null) {
     // ugh why doesn't twilio capitalize URL correctly in their API?
     // if only I knew somebody who worked there so I could complain
     parameters.mediaUrl = [mediaURL];
   }
-  await console.log("!!!!! PARAMETERS", parameters);
-  // await twilioClient.messages.create({ parameters });
+  await twilioClient.messages.create({ parameters });
 }
-
-// TODO:
-// end to end testing with at least 3 actual phone numbers + ngrok, before merging
 
 async function broadcastGroupChatMessage(
   senderPhoneNumber,
@@ -86,9 +81,9 @@ async function broadcastGroupChatMessage(
 
   const participant = participantMap.get(trimmedNumber);
   if (!participant) {
-    // todo: this probably shouldn't be a thrown error
-    // if people text the group chat after they're unsubscribed, just tell them they can't.
-    throw new Error(`participant ${trimmedNumber} not found`);
+    // if a participant unsubscribes but tries to broadcast a message, we could end up here.
+    // no need to throw an error 'cuz it may happen, just don't pass their message through.
+    console.log(`participant ${trimmedNumber} not found`);
   }
 
   const participantName = participant["name"];
