@@ -45,8 +45,7 @@ app.post("/api/messages", async (request, response, next) => {
 
   const messageBody = request.body.Body;
   try {
-    // TODO: should this be .contains? probablyyyyyyy
-    if (messageBody.toLowerCase() === "unsubscribe") {
+    if (messageBody.toLowerCase().includes("unsubscribe")) {
       await unsubscribeParticipant(
         request.body.From,
         base,

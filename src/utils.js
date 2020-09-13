@@ -74,6 +74,7 @@ async function sendSingleSMS(toNumber, messageBody, mediaURL = null) {
 
 // TODO:
 // tackle misc TODOs and cleanup littering this code base like tiny weeds
+// do we want to close subscriptions after everyone arrives? Probably we do.
 // end to end testing? (we probably want to do this with at least 3 actual phone numbers + ngrok, before merging)
 
 async function broadcastGroupChatMessage(
