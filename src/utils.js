@@ -6,7 +6,7 @@ const twilio = require("twilio");
 // this const is so that we can easily read/write from a test table under development
 // and not mess with "prod" data.
 // change this const to "participants" when you're ready to party.
-const tableName = "test";
+const tableName = "participants";
 
 // memoize this because why the fuck not
 //  THERE CAN BE ONLY ONE BASE
@@ -55,20 +55,30 @@ const getAllSubscribedParticipants = async (base, tableName) => {
   return participants;
 };
 
-const twilioNumber = "+1 415 430 9656";
+const twilioNumber = "+1 707 348 5740";
 const twilioClient = twilio(
   process.env.TWILIO_ACCOUNT_SID,
   process.env.TWILIO_AUTH_TOKEN
 );
 
 async function sendSingleSMS(toNumber, messageBody, mediaURL = null) {
-  const parameters = { to: toNumber, from: twilioNumber, body: messageBody };
   if (mediaURL !== null) {
     // ugh why doesn't twilio capitalize URL correctly in their API?
     // if only I knew somebody who worked there so I could complain
-    parameters.mediaUrl = [mediaURL];
+    // parameters.mediaUrl = [mediaURL];
+    await twilioClient.messages.create({
+      to: toNumber,
+      from: twilioNumber,
+      body: messageBody,
+      mediaUrl: [mediaURL],
+    });
   }
-  await twilioClient.messages.create({ parameters });
+
+  await twilioClient.messages.create({
+    to: toNumber,
+    from: twilioNumber,
+    body: messageBody,
+  });
 }
 
 async function broadcastGroupChatMessage(
