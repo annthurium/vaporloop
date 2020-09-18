@@ -20,12 +20,21 @@ const getBase = () => {
   return base;
 };
 
+// the revolution will not be memoized
+// i mean will! it will be memoized!
+// for real tho, lookin up all the participants is expensive.
+let subscribedParticipants = null;
+
 // returns a map of {"+15556667777", {name: 'tilde', airtableRecordId: '12345'} for all subscribed participants
-// phone numbers as always in e.164 format cuz I've got STANDARDS ok
-async function getAllSubscribedParticipants(base, tableName) {
+// phone numbers in e.164 format cuz I've got STANDARDS
+const getAllSubscribedParticipants = async (base, tableName) => {
+  if (subscribedParticipants !== null) {
+    return subscribedParticipants;
+  }
   const participants = new Map();
 
   // TODO: i am not sure .all will work if we get above 100 participants
+  // airtable docs says that's the max page size??
   // if we get that far let's make sure to test it out
   const records = await base(tableName).select().all();
   records.map((record) => {
@@ -42,21 +51,63 @@ async function getAllSubscribedParticipants(base, tableName) {
       });
     }
   });
+  subscribedParticipants = participants;
   return participants;
-}
+};
 
-const twilioNumber = "+1 415 430 9656";
+const twilioNumber = "+1 707 348 5740";
 const twilioClient = twilio(
   process.env.TWILIO_ACCOUNT_SID,
   process.env.TWILIO_AUTH_TOKEN
 );
 
-async function sendSingleSMS(toNumber, messageBody) {
+async function sendSingleSMS(toNumber, messageBody, mediaURL = null) {
+  if (mediaURL !== null) {
+    // ugh why doesn't twilio capitalize URL correctly in their API?
+    // if only I knew somebody who worked there so I could complain
+    // parameters.mediaUrl = [mediaURL];
+    await twilioClient.messages.create({
+      to: toNumber,
+      from: twilioNumber,
+      body: messageBody,
+      mediaUrl: [mediaURL],
+    });
+  }
+
   await twilioClient.messages.create({
     to: toNumber,
     from: twilioNumber,
     body: messageBody,
   });
+}
+
+async function broadcastGroupChatMessage(
+  senderPhoneNumber,
+  messageBody,
+  participantMap,
+  mediaURL = null
+) {
+  const trimmedNumber = senderPhoneNumber.trim();
+
+  const participant = participantMap.get(trimmedNumber);
+  if (!participant) {
+    // if a participant unsubscribes but tries to broadcast a message, we could end up here.
+    // no need to throw an error 'cuz it may happen, just don't pass their message through.
+    console.log(`participant ${trimmedNumber} not found`);
+  }
+
+  const participantName = participant["name"];
+
+  const messageBodyWithName = `${participantName}: ${messageBody}`;
+
+  for (const phoneNumber of participantMap.keys()) {
+    if (phoneNumber === trimmedNumber) {
+      // we don't need to send the sender a copy of their own message.
+      continue;
+    } else {
+      await sendSingleSMS(phoneNumber, messageBodyWithName, mediaURL);
+    }
+  }
 }
 
 async function unsubscribeParticipant(phoneNumber, base, participantMap) {
@@ -100,6 +151,7 @@ async function unsubscribeParticipant(phoneNumber, base, participantMap) {
 }
 
 module.exports = {
+  broadcastGroupChatMessage,
   getAllSubscribedParticipants,
   getBase,
   tableName,
