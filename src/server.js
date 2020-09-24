@@ -48,6 +48,7 @@ app.post("/api/participants", async (request, response, next) => {
   );
 });
 
+const vaporloopVoiceOfGodNumber = "+17073485740";
 app.post("/api/messages", async (request, response, next) => {
   const subscribedParticipants = await getAllSubscribedParticipants(
     base,
@@ -56,7 +57,13 @@ app.post("/api/messages", async (request, response, next) => {
 
   const messageBody = request.body.Body;
   try {
-    if (messageBody.toLowerCase().includes("unsubscribe")) {
+    // special case: we need to be able to tell participants how to unsubscribe
+    // if the voice of god sends a message containing the text "unsubscribe"
+    // don't actually unsubscribe!!
+    if (
+      request.body.From !== vaporloopVoiceOfGodNumber &&
+      messageBody.toLowerCase().includes("unsubscribe")
+    ) {
       await unsubscribeParticipant(
         request.body.From,
         base,

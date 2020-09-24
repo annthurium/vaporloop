@@ -55,7 +55,7 @@ const getAllSubscribedParticipants = async (base, tableName) => {
   return participants;
 };
 
-const twilioNumber = "+1 707 348 5740";
+const twilioGroupChatNumber = "+1 806 666 1001";
 const twilioClient = twilio(
   process.env.TWILIO_ACCOUNT_SID,
   process.env.TWILIO_AUTH_TOKEN
@@ -68,7 +68,7 @@ async function sendSingleSMS(toNumber, messageBody, mediaURL = null) {
     // parameters.mediaUrl = [mediaURL];
     await twilioClient.messages.create({
       to: toNumber,
-      from: twilioNumber,
+      from: twilioGroupChatNumber,
       body: messageBody,
       mediaUrl: [mediaURL],
     });
@@ -76,7 +76,7 @@ async function sendSingleSMS(toNumber, messageBody, mediaURL = null) {
 
   await twilioClient.messages.create({
     to: toNumber,
-    from: twilioNumber,
+    from: twilioGroupChatNumber,
     body: messageBody,
   });
 }
