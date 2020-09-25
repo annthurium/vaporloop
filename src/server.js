@@ -14,7 +14,7 @@ const app = express();
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
-app.use(express.static(__dirname + "/public"));
+app.use(express.static(__dirname + "/public", { extensions: ["html"] }));
 
 const base = getBase();
 
