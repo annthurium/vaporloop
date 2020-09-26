@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>VAPORLOOP</title>
+    <link rel="stylesheet" href="style-blue.css" />
+    <link
+      rel="icon"
+      href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🦕</text></svg>"
+    />
+  </head>
+
+  <body>
+    <h1>Choose Your Own Adventure</h1>
+    <p>
+      LP mastering engineers as people who literally transform sound into
+      physical waveforms; these engineers are sculptors of sound. The
+      temperature, humidity, the quality of the blank lacquer discs, and the
+      cutting stylus all potentially affect the sound of the finished product,
+      the LP.
+    </p>
+
+    <p>
+      People say vinyl records sound warmer. I wonder if the same is true for
+      analog telephones. I used to be so excited to talk on the phone for hours,
+      as a teenager. Stretching the curly cord as far as it could go, to grant
+      the illusion of diving into my own private world. These days, I’m a little
+      more hesitant when the phone rings.
+    </p>
+
+    <p>Don’t be wary. Take my hand. The waves are warmer than they look.</p>
+
+    <p>Call this number: NUMBER. ☎️</p>
+
+    <p>Put your phone on speaker. 🔊</p>
+
+    <p>Listen to the voice on the other end. 👄</p>
+
+    <p>
+      We’d like you to participate in a brief survey. On a scale of ⏅ to 🐬, how
+      do you feel different? Would you recommend this 🌌🍕👁‍🗨 to a friend?
+    </p>
+
+    <p>Thank you for your feedback. Onward and upward; the sunset beckons.</p>
+    <button id="toggle-visibility">
+      At your next clock tick, tap this button.
+    </button>
+    <span id="hidden-content" class="hidden">
+      <p>
+        You cannot leave yet; the phone line will keep you forever. Invisible
+        cords will bind you to ethereal airwaves. Keep going through the loop;
+        you will find somewhere worth ɛֆƈǟքɨռɢ to.
+      </p>
+
+      <p><b>Your next location is X.</b></p>
+    </span>
+  </body>
+  <script>
+    const toggleVisibilityButton = document.getElementById("toggle-visibility");
+    toggleVisibilityButton.addEventListener("click", (event) => {
+      document.getElementById("hidden-content").classList.toggle("hidden");
+    });
+  </script>
+</html>
