@@ -44,6 +44,7 @@
     <button id="toggle-visibility">
       at the first clock tick, tap this button.
     </button>
+    <p></p>
     <span id="hidden-content" class="hidden">
       <p>
         As above, so below. Now, you're the best Program that's ever been
@@ -58,6 +59,7 @@
     const toggleVisibilityButton = document.getElementById("toggle-visibility");
     toggleVisibilityButton.addEventListener("click", (event) => {
       document.getElementById("hidden-content").classList.toggle("hidden");
+      document.getElementById("hidden-content").scrollIntoView();
     });
   </script>
 </html>
