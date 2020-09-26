@@ -13,3 +13,19 @@ h1 {
 .hidden {
   display: none;
 }
+
+em {
+  background: none;
+}
+
+b {
+  background: none;
+}
+
+/* span {
+  background: none;
+}
+
+.extra {
+  color: #0000ff;
+} */
