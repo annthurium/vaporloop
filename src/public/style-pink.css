@@ -28,4 +28,14 @@ span {
 
 .extra {
   color: #0000ff;
+  font-weight: bold;
+}
+
+button {
+  height: 120px;
+  box-shadow: 10px 5px 5px#0000ff;
+}
+
+p {
+  margin-bottom: 60px;
 }
