@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>VAPORLOOP</title>
+    <link rel="stylesheet" href="style-purple.css" />
+    <link
+      rel="icon"
+      href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🦕</text></svg>"
+    />
+  </head>
+
+  <body>
+    <h1>Pictionary</h1>
+    <p>
+      The umpity-bajillion movies that show aliens attacking the earth got it
+      all wrong. Where I'm from we have more colors than you would believe. We
+      came, we saw, we got bored, we left.
+    </p>
+
+    <p>
+      You see, we’ve evolved beyond the need for text-based communication. The
+      only reason I’m still here are emojis, which are humankind's last hope.
+      Looking at ancient petroglyphs and hieroglyphs and glyph-glyphs, it’s
+      clear y’all are heading right back where you started and I am HERE for it.
+    </p>
+
+    <p>
+      To convince the rest of the EXTRATERRESTRIAL NEON DIMENSION to come party
+      with us, we need your help to put more art into the world.
+    </p>
+
+    <p>
+      In front of you, you will find some chalk, and also your phone. You will
+      need them both.
+    </p>
+
+    <p>
+      When you click the button, this page will display a phrase. You have some
+      number of minutes to illustrate the concept on the ground in front of you,
+      using chalk.
+    </p>
+
+    <p>
+      When you are done, or it has been more than 5-10 minutes, send a photo of
+      your illustration to group chat.
+      <b>Do not tell people what the phrase was. Ask them to guess.</b>
+    </p>
+
+    <p>
+      Click the button again to generate the next phrase. Do not wait for the
+      correct answer to your previous work before starting a new one.
+    </p>
+
+    <p>
+      <b>
+        Let other loopers know when their guess is correct on a factual, or an
+        emotional level.</b
+      >
+    </p>
+    <p>
+      Somewhere, another team is doing exactly what you are doing right now.
+      Support their efforts and try your best to let them know that you
+      understand what their drawings are trying to say.
+    </p>
+    <button id="show-phrase">Let's go</button>
+    <p>Your phrase is: <span class="extra" id="phrase"></span></p>
+
+    <button id="toggle-visibility">
+      At your next clock tick, tap this button.
+    </button>
+    <span id="hidden-content" class="hidden">
+      <p>
+        You cannot bear to stay here, among the fake illusions of former
+        memories. The earth will swallow your colors and strip them of meaning.
+        Keep going through the loop; you will find somewhere worth ɛֆƈǟքɨռɢ to.
+      </p>
+
+      <p>Your next location is X.</p>
+    </span>
+  </body>
+  <script>
+    const showPhraseButton = document.getElementById("show-phrase");
+    showPhraseButton.addEventListener("click", (event) => {
+      const phrases = [
+        "Sadboi sun",
+        "Stoned Windows 95",
+        "Piece of pizza wearing a mask",
+        "Bowling alley carpet",
+        "TRON, just TRON",
+        "Happy synthesizer",
+        "Statue wearing a mask",
+        "Jazz palm tree",
+        "Seapunk protester",
+        "Wave of mutilation",
+        "Shoegaze triangles",
+        "Glitch toilet",
+        "Geometric car",
+        "Arcade machine",
+        "80s rainbow",
+        "Ironic starfish",
+        "Glitter moon",
+        "Bisexual sunset",
+        "America Offline",
+        "Neon sign",
+        "perspective grid",
+        "Crying heart",
+        "Solo jazz cup",
+        "Non-binary game console",
+        "80s phone",
+        "Nintendo 64 logo",
+        "Cyberpunk skull",
+        "TIME CUBE ",
+        "Blue screen of death",
+        "90s mixtape",
+        "Happy saxophone",
+        "Mall rat",
+        "Hacker raccoon (haccoon? That’s a portmandon’t)",
+        "Pastel motorcycle",
+        "Punk seahorse",
+        "Seapunk horse",
+        "Glitch unicorn",
+        "Genderqueer cyborg",
+        "The last VHS tape on Earth",
+        "A trash goblin but make it ~ a E s T h E T i C ~",
+        "Vegetarian Ouroboros",
+        "Sleep alarm",
+        "Ancient Roman Space Alien",
+        "Fourier transform",
+        "Jazzy sine wave",
+        "Gay dolphin", // gay
+        "Tropical depression",
+      ];
+      const phrase = phrases[Math.floor(Math.random() * phrases.length)];
+      document.getElementById("phrase").innerText = phrase;
+    });
+    const toggleVisibilityButton = document.getElementById("toggle-visibility");
+    toggleVisibilityButton.addEventListener("click", (event) => {
+      document.getElementById("hidden-content").classList.toggle("hidden");
+    });
+  </script>
+</html>
