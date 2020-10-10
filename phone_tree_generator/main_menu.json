@@ -1,0 +1,25 @@
+[
+    {
+        "id": "main_menu", 
+        "msg": "This is a placeholder for the main menu. Press 1 to be attacked by goth pigeons", 
+        "transitions": [
+            "goth_pigeon_start",
+            "music_test"
+        ],
+        "x": 0, 
+        "y": -1
+    },
+    {
+        "id": "return_to_main_menu",
+        "msg": "Press 0 to return to the main menu. To hang up, hang up.",
+        "end": true,
+        "x": -1,
+        "y": -1
+    },
+    {
+        "id": "music_test",
+        "url": "https://crimson-kangaroo-7755.twil.io/assets/121048__thirsk__150-haunted-house-synth.wav",
+        "x": 1,
+        "y": -1
+    }
+]

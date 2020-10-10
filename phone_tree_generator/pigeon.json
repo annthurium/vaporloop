@@ -1,0 +1,109 @@
+[
+    {
+        "id": "goth_pigeon_start", 
+        "msg": "You’re being chased by health goth pigeons? Don’t just stand there, run! Get a little farther away, for fucks’ sake! But be careful, CARS ARE REAL. \n\n Where are you now? Look around you. Describe what you see. Go on, I’ll wait.", 
+        "speech": "goth_pigeon_main_choice",
+        "x": 0, 
+        "y": 0
+    }, 
+    {
+        "id": "goth_pigeon_main_choice", 
+        "msg": "You can do it! Press 1 to build a trap to catch the pigeons. Press 2 to report your pigeons to the fashion police for crimes against spandex. Press 3 if you’re like “wtf is a health goth”. Press 4 to befriend the pigeons.", 
+        "transitions": [
+            "goth_pigeon_1", 
+            "goth_pigeon_2", 
+            "goth_pigeon_3",
+            "goth_pigeon_4"
+        ], 
+        "x": 0, 
+        "y": 1
+    },
+    {
+        "id": "goth_pigeon_1", 
+        "msg": "Ideally you’ll need moisture wicking fabric. It has to be black or grey, though. If you dressed for the occasion in magenta or seafoam green, I’m sorry to tell you, it isn’t going to attract those pigeons. If you don’t have any moisture-wicking fabric, look around you. What else do you see that you could make a pigeon trap with?", 
+        "speech": "goth_pigeon_trap",
+        "x": -2, 
+        "y": 2
+    }, 
+    {
+        "id": "goth_pigeon_trap", 
+        "msg": "You manage to MacGuyver a trap out of some human hair, duct tape, hand sanitizer, and left over Junior Mints from back when movies were a thing. Your world is safe from health goth pigeons...for now. But what are you missing? Press 1 to try something else.", 
+        "transitions": [
+            "goth_pigeon_main_choice" 
+        ], 
+        "end": true,
+        "x": -2, 
+        "y": 3
+    },
+    {
+        "id": "goth_pigeon_2", 
+        "msg": "Just kidding. In this house, we don’t call the cops on people. Even the fashion police. The fashion police are only a few letters away from the fascist police. What makes you think you have the right to pass judgement on what other beings are wearing? Even if, okay, sure, they are chasing you, and their intentions are vaguely ominous. \n\n I once dated a girl who was terrified of pigeons. I asked why, and she said she saw one get stuck in a girl’s hair once. I said “baby, your hair is less than an inch long.” \n\n If there are other groups of players nearby, I want you to ask them some questions. Don’t worry, I’ll wait. If there are no other groups nearby, just tell me your answers instead. What are you irrationally afraid of?", 
+        "speech": "goth_pigeon_trap",
+        "x": -1, 
+        "y": 2
+    }, 
+    {
+        "id": "goth_pigeon_trap", 
+        "msg": "The pigeons listen attentively. You have won. Press 1 to learn more about health goth pigeons", 
+        "transitions": [
+            "goth_pigeon_main_choice"
+        ], 
+        "end": true,
+        "x": -1, 
+        "y": 3
+    },
+    {
+        "id": "goth_pigeon_3", 
+        "msg": "Health goth is an aesthetic movement started by some vaporwave musicians from Portland. \n\nIt’s hard to describe an aesthetic movement over the phone, so thanks for bearing with me.\n\nHealth Goth \"relies on an anti-nostalgic dystopian present,\" providing \"an ethos of mythologizing our technological present\" and that \"reimagining the present future by mocking self-awareness as a Humanist project of little efficacy\". \n\nAnyone trying to tell you that Health Goth is about goths working out has simply taken the two words at face value and opted for a less challenging, and extremely boring alternative.\n\nSaying that Health Goth is about goths working out is like saying that cyberpunk is Johnny Rotten doing spreadsheets on a Dell.\n\nIf there are other groups of players nearby, I want you to ask them some questions. Don’t worry, I’ll wait. If there are no other groups nearby, just tell me your answers instead. What kinds of identities have you held in the past that are no longer important to you?", 
+        "speech": "goth_pigeon_id",
+        "x": 1, 
+        "y": 2
+    }, 
+    {
+        "id": "goth_pigeon_id", 
+        "msg": "The pigeons listen attentively. They will listen to better music from here on in. Press 1 to learn more about health goth pigeons", 
+        "transitions": [
+            "goth_pigeon_main_choice"
+        ], 
+        "end": true,
+        "x": 1, 
+        "y": 3
+    },
+    {
+        "id": "goth_pigeon_4", 
+        "msg": "Press 1 to ask the pigeons about themselves. Pigeons are just as self centered as humans even if they don’t want to admit it.", 
+        "transitions": [
+            "goth_pigeon_4_1"
+        ], 
+        "x": 2, 
+        "y": 2
+    }, 
+    {
+        "id": "goth_pigeon_4_2", 
+        "msg": "They are still dive bombing at your head. Press 1 to shout WHO HURT U, PIGEONS, JEEZ", 
+        "transitions": [
+            "goth_pigeon_4_3"
+        ], 
+        "x": 2, 
+        "y": 3
+    }, 
+    {
+        "id": "goth_pigeon_4_3", 
+        "msg": "They laugh, but they stop swooping at your face. Press 1 to offer them a thimble-sized shot glass of your beer.", 
+        "transitions": [
+            "goth_pigeon_4_4"
+        ], 
+        "x": 2, 
+        "y": 4
+    }, 
+    {
+        "id": "goth_pigeon_4_4", 
+        "msg":  "They apologize. It’s been a hard year. You nod. It’s all good.",
+        "transitions": [
+            "goth_pigeon_main_choice"
+        ], 
+        "end": true,
+        "x": 2, 
+        "y": 5
+    }
+]
