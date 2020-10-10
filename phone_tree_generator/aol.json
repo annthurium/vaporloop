@@ -2,59 +2,59 @@
     "x-offset": 4,
     "states": [
         {
-        "id":"aol_start",
-        "msg":"Well, don’t just stand there, make some modem noises. I’m waiting",
-        "speech":"aol_main_choice",
-        "x":0,
-        "y":0
+            "id":"aol_start",
+            "msg":"Well, don’t just stand there, make some modem noises. I’m waiting",
+            "speech":"aol_main_choice",
+            "x":0,
+            "y":0
         },
         {
-        "id":"aol_main_choice",
-        "msg":"You’re a one or a zero. Hurtling through a dark tube underneath the ocean. If you slow down, you’ll die. But wait. A firewall blocks your path. Press 1 to resist. Press 2 to give up.",
-        "transitions":[
-            "aol_choice_1",
-            "aol_choice_2"
-        ],
-        "x":0,
-        "y":1
+            "id":"aol_main_choice",
+            "msg":"You’re a one or a zero. Hurtling through a dark tube underneath the ocean. If you slow down, you’ll die. But wait. A firewall blocks your path. Press 1 to resist. Press 2 to give up.",
+            "transitions":[
+                "aol_choice_1",
+                "aol_choice_2"
+            ],
+            "x":0,
+            "y":1
         },
         {
-        "id":"aol_choice_1",
-        "msg":"You put up a valiant fight. You zig, the router zags. You beep, the router boops. Please perform the firewall dance. I'll wait.",
-        "speech":"aol_main_story",
-        "x":0,
-        "y":2
+            "id":"aol_choice_1",
+            "msg":"You put up a valiant fight. You zig, the router zags. You beep, the router boops. Please perform the firewall dance. I'll wait.",
+            "speech":"aol_main_story",
+            "x":0,
+            "y":2
         },
         {
-        "id":"aol_choice_2",
-        "msg":"Knowing when to give up is a valuable skill. Your signals may die as you enter oblivion, but your information lives on. Press 1 to continue.",
-        "transitions":[
-            "aol_main_story"
-        ],
-        "x":1,
-        "y":2
+            "id":"aol_choice_2",
+            "msg":"Knowing when to give up is a valuable skill. Your signals may die as you enter oblivion, but your information lives on. Press 1 to continue.",
+            "transitions":[
+                "aol_main_story"
+            ],
+            "x":1,
+            "y":2
         },
         {
-        "id":"aol_main_story",
-        "msg":"Luckily, the way that TCP works, the information you were embodying is guaranteed to arrive anyway. You’ll be reborn. But is the reborn version really you? Do cyber dolphins dream of electric sheep? \n\n Think about all the infrastructure you take for granted. About how easy it is to not notice things until they break. \n\n If there are other groups of players nearby, I want you to ask them some questions. Don’t worry, I’ll wait. If there are no other groups nearby, just tell me your answers instead. How has the internet changed since you first started using it?",
-        "speech":"aol_main_meditation",
-        "x":0,
-        "y":3
+            "id":"aol_main_story",
+            "msg":"Luckily, the way that TCP works, the information you were embodying is guaranteed to arrive anyway. You’ll be reborn. But is the reborn version really you? Do cyber dolphins dream of electric sheep? \n\n Think about all the infrastructure you take for granted. About how easy it is to not notice things until they break. \n\n If there are other groups of players nearby, I want you to ask them some questions. Don’t worry, I’ll wait. If there are no other groups nearby, just tell me your answers instead. How has the internet changed since you first started using it?",
+            "speech":"aol_main_meditation",
+            "x":0,
+            "y":3
         },
         {
-        "id":"aol_main_meditation",
-        "msg":"Everything alive, everything organic comes in waves. The internet is a complex system, a living thing. From where I’m sitting, there are waves of centralization and decentralization. Wishing all your friends were on a specific platform quickly morphs into “there are too many people, this is a bonfire, I’m going to retreat over to my private corner of cyberspace. Although, as always, I suspect the root cause is capitalism if you dig deep enough. Oh, I forgot, you were trying to connect to the AOL. Apologies for the digression. Press 1 to connect.",
-        "transitions":[
-            "aol_mail"
-        ],
-        "x":0,
-        "y":4
+            "id":"aol_main_meditation",
+            "msg":"Everything alive, everything organic comes in waves. The internet is a complex system, a living thing. From where I’m sitting, there are waves of centralization and decentralization. Wishing all your friends were on a specific platform quickly morphs into “there are too many people, this is a bonfire, I’m going to retreat over to my private corner of cyberspace. Although, as always, I suspect the root cause is capitalism if you dig deep enough. Oh, I forgot, you were trying to connect to the AOL. Apologies for the digression. Press 1 to connect.",
+            "transitions":[
+                "aol_mail"
+            ],
+            "x":0,
+            "y":4
         },
         {
-        "id":"aol_mail",
-        "url":"https://web.mit.edu/ekate/Public/m1.mp3",
-        "x":0,
-        "y":5
+            "id":"aol_mail",
+            "url":"https://web.mit.edu/ekate/Public/m1.mp3",
+            "x":0,
+            "y":5
         }
     ]
 }

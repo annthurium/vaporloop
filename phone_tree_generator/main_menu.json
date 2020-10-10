@@ -7,7 +7,8 @@
             "transitions": [
                 "goth_pigeon_start",
                 "aol_start",
-                "music_test"
+                "yoga_start",
+                "yoga_start"
             ],
             "x": 0, 
             "y": -1
@@ -17,12 +18,6 @@
             "msg": "Press 0 to return to the main menu. To hang up, hang up.",
             "end": true,
             "x": -1,
-            "y": -1
-        },
-        {
-            "id": "music_test",
-            "url": "https://crimson-kangaroo-7755.twil.io/assets/121048__thirsk__150-haunted-house-synth.wav",
-            "x": 1,
             "y": -1
         }
     ]

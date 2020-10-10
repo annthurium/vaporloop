@@ -1,0 +1,105 @@
+{
+    "x-offset":7,
+    "states":[
+       {
+          "id":"yoga_start",
+          "msg":"There is no number 6. \n\n There are no statues. \n\n There is no army of health goth pigeons.\n\n  There is only the void. Press 1 if you would like to scream into the void. \n\n Press 2 if you would like to scream into the void. \n\n Press 3 if you are in a yoga class and you would like to do a loud, dramatic sigh instead.",
+          "transitions":[
+             "yoga_void_1",
+             "yoga_void_1",
+             "yoga_sigh_1"
+          ],
+          "x":0,
+          "y":0
+       },
+       {
+          "id":"yoga_void_1",
+          "msg":"The urge to scream is the most understandable thing in the world, given everything that’s going ON in the world at the moment. Nevertheless, don’t be an asshole. Before you scream into the void, look around you. Are there other people nearby? Check, then press 1 to continue.",
+          "transitions":[
+             "yoga_void_2"
+          ],
+          "x":1,
+          "y":1
+       },
+       {
+          "id":"yoga_void_2",
+          "msg":"Be considerate to what’s going on around you. Modulate your volume to an appropriate level. Maybe announce “nothing’s wrong, I just need to scream for a minute” first. People will get it. It’s a very 2020 mood. Let's count down together. Press 3 to continue.",
+          "transitions":[
+             "yoga_void_1",
+             "yoga_void_1",
+             "yoga_void_3"
+          ],
+          "x":1,
+          "y":2
+       },
+       {
+          "id":"yoga_void_3",
+          "msg":"Press 2 to continue.",
+          "transitions":[
+             "yoga_void_1",
+             "yoga_void_4"
+          ],
+          "x":1,
+          "y":3
+       },
+       {
+          "id":"yoga_void_4",
+          "msg":"Press 1 to scream with me.",
+          "transitions":[
+             "yoga_void_5"
+          ],
+          "x":1,
+          "y":4
+       },
+       {
+          "id":"yoga_void_5",
+          "msg":"Three. Two. One. AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH",
+          "speech":"yoga_void_6",
+          "x":1,
+          "y":5
+       },
+       {
+          "id":"yoga_void_6",
+          "msg":"To try something more relaxing, press 1.",
+          "transitions":[
+             "yoga_start"
+          ],
+          "end":true,
+          "x":1,
+          "y":4
+       },
+       {
+          "id":"yoga_sigh_1",
+          "msg":"First off, I want to acknowledge that yoga as it is practiced in the west is cultural appropriation, a lot of the time. Now that we’ve gotten that out of the way...do you ever wish yoga was a little less..run by hippies? \n\n If there are other groups of players nearby, I want you to ask them some questions. Don’t worry, I’ll wait. If there are no other groups nearby, just tell me your answers instead. What kind of music would you want at your yoga class, if you were in charge? ",
+          "speech":"yoga_sigh_2",
+          "x":0,
+          "y":1
+       },
+       {
+          "id":"yoga_sigh_2",
+          "msg":"For some reason, I always picture yoga teachers walking around doing hits of nitrous oxide. Making no corrections to my form. But still telling me to breathe deeply. \n\n Anyway. Let’s all take a deep breath. If there are other people nearby, invite them to join you. Press 1 when you are ready.",
+          "transitions":[
+             "yoga_sigh_3"
+          ],
+          "x":0,
+          "y":2
+       },
+       {
+          "id":"yoga_sigh_3",
+          "msg":"Exhale all the air in your lungs. Fill them slowly. When you think you’re full, take another tiny sip of air. Let it out, emitting a loud sigh, and picture all the fucks you have to to give leaving your body. \n\n\n MMMMMMMMMMMMMMMMMMMMMMMMMM",
+          "speech":"yoga_end",
+          "x":0,
+          "y":3
+       },
+       {
+          "id":"yoga_end",
+          "msg":"To try something less relaxing, press 1.",
+          "transitions":[
+             "yoga_start"
+          ],
+          "end":true,
+          "x":0,
+          "y":4
+       }
+    ]
+ }
