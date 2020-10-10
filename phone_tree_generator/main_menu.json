@@ -5,6 +5,7 @@
             "id": "main_menu", 
             "msg": "This is a placeholder for the main menu. Press 1 to be attacked by goth pigeons", 
             "transitions": [
+                "sequence_test_0",
                 "goth_pigeon_start",
                 "aol_start",
                 "yoga_start",
@@ -19,6 +20,26 @@
             "end": true,
             "x": -1,
             "y": -1
+        },
+        {
+            "id": "sequence_test", 
+            "sequence": [
+                "This is a placeholder1", 
+                "This is a placeholder2",
+                "This is a placeholder3",
+                "This is a placeholder4"
+            ],
+            "next":"sequence_end",
+            "x": -5, 
+            "y": 0
+        },
+        {
+            "id": "sequence_end",
+            "msg": "End sequence.",
+            "end": true,
+            "x": -5,
+            "y": 6
         }
+
     ]
 }

@@ -1,5 +1,8 @@
 import json
 
+# These constants let us keep track of rows instead of coordinates, which makes rendering easier.
+Y_MOD = 150
+
 def GenerateEventSet(asWritten, mainMenu):
     id = asWritten["id"]
     msg = asWritten["msg"]
@@ -31,7 +34,7 @@ def GenerateEventSet(asWritten, mainMenu):
             "input": "{{widgets." + gatherer["name"] + ".Digits}}",
             "offset": {
                 "x": asWritten["x"],
-                "y": asWritten["y"] + 150
+                "y": asWritten["y"] + Y_MOD
             }
         },
         "transitions": [{ "event": "noMatch" }],
@@ -125,6 +128,34 @@ def GenerateEventSingle(asWritten):
     }
     return [gatherer]
 
+def GenerateSequence(asWritten):
+    msgs = asWritten["sequence"]
+    states = []
+    i = 0
+    ffs = []
+
+    for m in msgs:
+        id = asWritten["id"] + "_" + str(i)
+        y = asWritten["y"] + (i * Y_MOD * 2.5)
+        x = asWritten["x"]
+        msg = m + " Press 1 to continue."
+        next_state = asWritten["id"] + "_" + str(i + 1)
+        if i == (len(msgs) - 1):
+            next_state = asWritten["next"]
+        f = {
+            "id": id,
+            "msg": msg,
+            "x": x,
+            "y": y,
+            "transitions": [next_state]
+        }
+        ffs.append(f)
+        states.extend(GenerateEventSet(f, id + "_0"))
+        i = i+1
+
+  #  print json.dumps(ffs, indent=4)
+    return states
+
 def GeneratePlay(asWritten):
     id = asWritten["id"]
     url = asWritten["url"]
@@ -172,5 +203,7 @@ def GenerateStates(f, mainMenu):
         return GeneratePlay(f)
     elif "speech" in f:
         return GenerateEventSpeech(f)
+    elif "sequence" in f:
+        return GenerateSequence(f)
     else:
         return GenerateEventSingle(f)
