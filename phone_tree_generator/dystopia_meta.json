@@ -1,0 +1,226 @@
+{
+    "x-offset":0,
+    "states":[
+        {
+            "id": "dystopia_start",
+            "msg": "What are the aspects of a dystopian timeline you are the most satisfied with? For “Concentration of wealth and power in the hands of the Jeff Bezos” press 1. For “Upcoming annihilation of all human and also non-human life on this planet” press 2. For the “Campaign to defund gender”, press 3",
+            "transitions": [
+                "dystopia_wealth",
+                "dystopia_animal",
+                "dystopia_gender"
+            ],
+            "x": 0,
+            "y": 0
+        },
+        {   
+            "id": "dystopia_wealth",
+            "msg": "I am sorry. This is a dystopia. That means that it is bad. The thing you like is terrible. \n\n To reconsider your choices, ponder. Then, press 1 to change the accelerating concentration of money in the hands of the wealthy. There are no other options.",
+            "transitions": [
+                "dystopia_wealth_1"
+            ],
+            "x": -7,
+            "y": 1
+        },
+        {   
+            "id": "dystopia_wealth_1",
+            "msg": "To fight back with the oligarchy of art and love, press 1. To read the Necronomicon of taxes, press 2.",
+            "transitions": [
+                "dystopia_disco_0",
+                "dystopia_taxes"
+            ],
+            "x": -7,
+            "y": 1
+        },
+        {
+            "id": "dystopia_disco",
+            "sequence": [
+                "Disco was born amid the backlash to the idealism of 1960s.  Nixon. Watergate. Worsening inequality.",
+                "Disco was the music of queer people. It was the music of people of color. It was a dance floor where everyone was equal."
+            ],
+            "next": "disco_choice",
+            "x": -7,
+            "y": 2
+        },
+        {
+            "id": "disco_choice",
+            "msg": "To hate on the haters, press 1. If you love yourself, press 2. To tell the DJ to shut the fuck up and play something, press 3.",
+            "transitions": [
+                "disco_hate_0",
+                "disco_love_0",
+                "disco_dj"
+            ],
+            "x": -7,
+            "y": 3
+        }, {
+            "id": "disco_hate",
+            "sequence": [
+                "Lots of people hated disco in 1970s. Anti-disco clubs that would pelt YMCA fans with marshmallows.  Old white radio hosts threw record burnings in crowded stadiums.",
+                "The backlash to Disco was homophobic and racist. More importantly, it wasn't even organic. Most of the clubs were secretly sponsored by radio stations. By tying people's identity with music, they could sell more advertisements.",
+                "The backlash to disco was so severe, that we still remember it. White supremacy was profitable in 1970s. It is profitable now. It always was." 
+            ],
+            "next": "disco_hate_songs",
+            "x": -8,
+            "y": 4
+        }, {
+            "id": "disco_hate_songs",
+            "msg": "For actual commercialism, press 1. For fake commercialism, press 2.",
+            "transitions": [
+                "disco_hate_space", "disco_hate_tables"
+            ],
+            "x": -8,
+            "y": 5
+        }, {
+            "id": "disco_hate_space",
+            "audio":"https://web.mit.edu/ekate/Public/dh1.mp3",
+            "next":"disco_hate_options",
+            "x":-9,
+            "y":6
+        }, {
+            "id": "disco_hate_tables",
+            "audio":"https://web.mit.edu/ekate/Public/dh2.mp3",
+            "next":"disco_hate_options",
+            "x":-8,
+            "y":6
+        }, {
+            "id": "disco_hate_options",
+            "msg": "To listen to the other option, press 1. To learn more about disco music, press 2. To try something else, press 3. To choose another dystopia, press 4.",
+            "transitions": [
+                "disco_hate_songs", "disco_choice", "dystopia_wealth_1", "dystopia_start"
+            ],
+            "end": true,
+            "x":-8,
+            "y":6
+        }, {
+            "id": "disco_love",
+            "sequence": [
+                "We still have our music. In the 21st century, we talk about joy. We still steal our moments of happiness and revel in the freedoms we have.",
+                "Disco never died. It was relabeled as dance music and is still loved today" 
+            ],
+            "next": "disco_love_songs",
+            "x": -7,
+            "y": 4
+        }, {
+            "id": "disco_love_songs",
+            "msg": "For the hot stuff of 1970s press 1. For the WAP press 2",
+            "transitions": [
+                "disco_love_1970s", "disco_love_2020"
+            ],
+            "x": -7,
+            "y": 5
+        },  {
+            "id": "disco_love_1970s",
+            "audio":"https://web.mit.edu/ekate/Public/dl3.mp3",
+            "next":"disco_love_options",
+            "x":-7,
+            "y":6
+        }, {
+            "id": "disco_love_2020",
+            "audio":"https://web.mit.edu/ekate/Public/dl2.mp3",
+            "next":"disco_love_options",
+            "x":-6,
+            "y":6
+        }, {
+            "id": "disco_love_options",
+            "msg": "To listen to the other option, press 1. To learn more about disco music, press 2. To try something else, press 3. To choose another dystopia, press 4.",
+            "transitions": [
+                "disco_love_songs", "disco_choice", "dystopia_wealth_1", "dystopia_start"
+            ],
+            "end": true,
+            "x":-7,
+            "y":6
+        }, {
+            "id": "disco_dj",
+            "msg": "",
+            "transitions": ["disco_grammy"],
+            "x": -6,
+            "y": 4
+        }, {
+            "id":"disco_grammy",
+            "url":"https://web.mit.edu/ekate/Public/d1.mp3",
+            "x":-6,
+            "y":5
+        }, {
+            "id": "dystopia_taxes",
+            "msg": "You are reading the Taxonomicon. The skull appendix cannot be read in English. To try Latin, press 1. To try Esperanto, press 2. To try objective linearity, press 3.",            
+            "transitions": [
+                "taxes_latin_0",
+                "taxes_esperanto_0",
+                "taxes_linear_0"
+            ],
+            "x": -6,
+            "y": 2
+        }, {
+            "id": "taxes_latin",
+            "sequence": ["Comitatus est autem plena cash valorem et realis proprietas aestimatione assessores, ut ostensum est in 1975-76 in libellum tributum plena cash valorem, et postmodum in aestimationem consecuturum, cum ipsa res constabant, cedificati vel mutationem in rerum inciderunt, post MCMLXXV taxationem emendare. Omnia diiudicare iam ad rem veram licet gradibus reassessed 1975-76 census aestimatione considerare"],
+            "next": "taxes_femur",
+            "x": -6,
+            "y": 3
+        }, {
+            "id": "taxes_esperanto",
+            "sequence": ["La plena mona valoro signifas la taksadon de nemoveblaĵoj de la guberniaj taksistoj, kiel montrite en la imposto-fakturo 1975-76 sub plena mona valoro, aŭ poste, la taksita valoro de nemoveblaĵoj aĉetita, nove konstruita aŭ ŝanĝo de proprieto okazis. post la 1975-takso. Ĉiuj nemoveblaĵoj ne jam taksitaj ĝis la impostoj de 1975-76 povas esti retaksitaj por reflekti tiun taksadon"],
+            "next": "taxes_femur",
+            "x": -5,
+            "y": 3
+        }, {
+            "id": "taxes_linear",
+            "sequence": ["1975 1975-76 1975-76 All Assessors County The a after already appraised as assessed assessment. be bill cash cash change constructed, or full has in levels may means not occurred of of on or ownership property property property purchased, real real real reassessed reflect shown tax tax that the the the the thereafter to to under up valuation valuation.,the value value value, newly when full"],      
+            "next": "taxes_femur",
+            "x": -4,
+            "y": 3
+        }, {
+            "id": "taxes_femur",
+            "msg": "The Femur Appendix yields to your touch. To avoid spoilers, press 1. To sound like an ancient Roman cop, press 2. To read simply, press 3.",
+            "transitions": [
+                "taxes_rot13_0",
+                "taxes_piglatin_0",
+                "taxes_common_0"
+            ],
+            "x": -6,
+            "y": 4
+        }, {
+            "id": "taxes_rot13",
+            "sequence": ["Gur orggre gb frpher naq crecrghngr zhghny sevraqfuvc naq vagrepbhefr nzbat gur crbcyr bs gur qvssrerag fgngrf va guvf havba, gur serr vaunovgnagf bs rnpu bs gurfr fgngrf, cnhcref, intnobaqf naq shtvgvirf sebz Whfgvpr rkprcgrq, funyy or ragvgyrq gb nyy cevivyrtrf naq vzzhavgvrf bs serr pvgvmraf va gur frireny fgngrf"],
+            "next": "taxes_sterno_clavicular",
+            "x": -6,
+            "y": 5
+        }, {
+            "id": "taxes_piglatin",
+            "sequence": ["ethay etterbay otay ecuresay andyay erpetuatepay utualmay iendshipfray andyay intercourseyay amongyay ethay eoplepay ofyay ethay ifferentday atesstay inyay isthay unionyay , ethay eefray inhabitantsyay ofyay eachyay ofyay esethay atesstay , auperspay , agabondsvay andyay ugitivesfay omfray usticejay exceptedyay , allshay ebay entitledyay otay allyay ivilegespray andyay immunitiesyay ofyay eefray itizenscay inyay ethay everalsay states"],
+            "next": "taxes_sterno_clavicular",
+            "x": -5,
+            "y": 5
+        }, {
+            "id": "taxes_common",
+            "sequence": ["Thuh better to get and keep in memory common (to 2 or more) friendship and relations among thuh persons in general of thuh different states in like, ya know, this comin' together part, mostly thuh free inhabitants of each of these states, like persons supported by others livin' near-by, man persons with no fixed livin' place and persons in flight from bein' just but for, like, wow shall be given thuh right to all privileges and powers against danger of free citizens in thuh several states; and thuh persons in general of each state shall have free ingress and go back to and from any other state, mostly and shall have special rights like, there in all thuh privileges of trade and business"],
+            "next": "taxes_sterno_clavicular",
+            "x": -4,
+            "y": 5
+        }, {
+            "id": "taxes_sterno_clavicular",
+            "msg": "Some solutions are engraved in the anterior Sterno-clavicular. To work on dismantling property, press 1. To consider voting rights, press 2.",
+            "transitions": [
+                "taxes_property", "taxes_voting"
+            ],
+            "x": -6,
+            "y": 6
+        }, {
+            "id": "taxes_property",
+            "msg": "The first text was an excerpt from the infamous Proposition 13, which freezes California’s ability to tax property. There are two measures on the CA ballot this November that will allow more property to be taxed at its real value. Avoiding paying property taxes has allowed many billionaires to continue accumulating wealth and with it, power beyond the scope of California. \n\n Sometimes, voting is harm reduction. What is happenning locally where you are? \n\n  To come to another conclusion, press 1. To fight Jeff Bezos through other means, press 2. To choose another dystopia, press 3.",
+            "transitions": [
+                "taxes_sterno_clavicular", "dystopia_wealth_1", "dystopia_start"
+            ],    
+            "end": true,
+            "x":-6,
+            "y":7
+        }, {
+            "id": "taxes_voting",
+            "msg": "The second text is from the Articles of Confederation, the precursor to the Constitution. It proceeds to enumerate groups that do not have protection under law. In November 2020, California will vote on allowing parolees to vote. \n\n Sometimes, voting is harm reduction. What is happening locally where you are? \n\n To come to another conclusion, press 1. To fight Jeff Bezos through other means, press 2. To choose another dystopia, press 3.",
+            "transitions": [
+                "taxes_sterno_clavicular", "dystopia_wealth_1", "dystopia_start"
+            ],    
+            "end": true,
+            "x":-5,
+            "y":7
+        }
+    ]
+}

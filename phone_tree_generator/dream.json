@@ -1,0 +1,177 @@
+{
+    "x-offset":-10,
+    "states":[
+       {
+          "id":"dream_start",
+          "sequence":[
+             "Consciousness is a funny thing. If you think “I’m conscious” or “I’m unconscious” is a binary, you are wrong.",
+             "Down with binaries! Unless you are a computer, beep boop, in which case I’ll allow it! Are you?",
+             "Insomniacs regularly under-estimate the amount of sleep they are getting, because in the lighter stages of sleep, you might think you are awake. You blink your eyes, and suddenly a few hours pass. Like a time warp.",
+             "Being in a coma is also not a binary. People in comas may appear to be awake. May move. May blink their eyes.",
+             "Which is why the Glasgow Coma Scale exists, to answer the important existential question, “exactly how much of a coma are you in” because the answer matters in terms of making heart-wrenching decisions about the sort of care you’ll receive, or not."
+          ],
+          "next":"dream_choice",
+          "x":0,
+          "y":-1
+       },
+       {
+          "id":"dream_choice",
+          "msg":"We need to figure out your non-standard care. Press 1 if you think you might be in a coma. Press 2 if you think you might be asleep. Press 3 if you think you might be in a K-Hole.",
+          "transitions":[
+             "dream_coma_0",
+             "dream_sleep",
+             "dream_hole"
+          ],
+          "x":0,
+          "y":4
+       },
+       {
+          "id":"dream_coma",
+          "sequence":[
+             "Flinching in response to physical pain is one way to know you’re alive and alert. The Glasgow Coma Scale factors this into their testing criteria."
+          ],
+          "next":"dream_coma_1",
+          "x":-1,
+          "y":5
+       },
+       {
+          "id":"dream_coma_1",
+          "msg":"Grab a friend from your pod. Ask them to slap you in the face, lightly. \n\n If they’re not comfortable doing that, ask them why they are such a wuss. Tell them you always hurt the ones you love the most. \n\n Okay fine, tell them to squeeze your hand a little too hard instead. Press 1 after you have done this.",
+          "transitions":[
+             "dream_coma_2"
+          ],
+          "x":-1,
+          "y":6
+       },
+       {
+          "id":"dream_coma_2",
+          "msg":"On the pain scale of infatuation to lizard, how much did that hurt? Please use the exact number between 1 and 9.",
+          "transitions":[
+             "dream_coma_3",
+             "dream_coma_3",
+             "dream_coma_3",
+             "dream_coma_3",
+             "dream_coma_3",
+             "dream_coma_3",
+             "dream_coma_3",
+             "dream_coma_3",
+             "dream_coma_3"
+          ],
+          "x":-1,
+          "y":7
+       },
+       {
+          "id":"dream_coma_3",
+          "msg":"Congratulations, you are probably not in a coma. God dammit Jim, I’m an artist not a doctor. If you are still unsure about reality, press 1.",
+          "transitions":[
+             "dream_choice"
+          ],
+          "x":-1,
+          "y":7
+       },
+       {
+          "id":"dream_sleep",
+          "msg":"The first thing to check: are you wearing pants? If not, you might be dreaming or you might be on a videoconference. But the good news is, the adrenaline spike of realizing that nobody cares regardless will probably be enough to wake you up. Press 1 to continue.",
+          "transitions":[
+             "dream_sleep_1"
+          ],
+          "x":0,
+          "y":5
+       },
+       {
+          "id":"dream_sleep_1",
+          "msg":"Look around you. Do you see any walruses? Specifically, we’re looking for the Ambien Walrus. The Ambien Walrus has some ideas about how you should be spending your time. If you see the Ambien Walrus, press 1 1 to text your ex. Press 2 to lose your car keys. Press 3 to eat all the cookies. If you don’t see the Ambien Walrus, look around again, and then press 4.",
+          "transitions":[
+             "dream_walrus_1",
+             "dream_walrus_1",
+             "dream_walrus_1",
+             "dream_narrative_0"
+          ],
+          "x":0,
+          "y":6
+       },
+       {
+          "id":"dream_walrus_1",
+          "msg":"DO NOT listen to the ambien walrus. If you see the Ambien Walrus, you are asleep, even if you don’t think so. do not pass go. Do not collect $200. Don’t do it. Lie down in a safe place. Take a deep breath. Look at the sky. This too shall pass. Press 1 to continue",
+          "transitions":[
+             "dream_walrus_2"
+          ],
+          "x":1,
+          "y":7
+       },
+       {
+          "id":"dream_walrus_2",
+          "url":"https://web.mit.edu/ekate/Public/m2.mp3",
+          "x":1,
+          "y":8
+       },
+       {
+          "id":"dream_narrative",
+          "sequence":[
+             "The thing about dreams is that they have a non-linear narrative structure.",
+             "You’re in a magenta race car, speeding towards the geometric sunset with your stolen nanobots.",
+             "Then suddenly and without warning, you’re on a surfboard, trying in vain to escape a blue screen of death, while a cyan seahorse giggles at you."
+          ],
+          "next":"dream_narrative_q",
+          "x":0,
+          "y":7
+       },
+       {
+          "id":"dream_narrative_q",
+          "msg":"Think about your future. The narrative arc that brought you here. What did you want to get out of this experience? Each person in the group, tell each other your answer. Don’t worry, I’ll wait.",
+          "speech":"dream_narrative_end",
+          "x":0,
+          "y":10
+       },
+       {
+          "id":"dream_narrative_end",
+          "msg":"If you can imagine each step in your day, in your week, that brought you here, you probably aren’t dreaming. Although, every day I see a headline that makes me ask myself what’s real. If you see an ambien walrus, press 1.",
+          "transitions":[
+             "dream_walrus_1"
+          ],
+          "end":true,
+          "x":0,
+          "y":11
+       },
+       {
+          "id":"dream_hole",
+          "audio":"https://crimson-kangaroo-7755.twil.io/assets/k-hole-sound.wav",
+          "next":"dream_hole_speech_0",
+          "x":1,
+          "y":5
+       },
+       {
+          "id":"dream_hole_speech",
+          "sequence":[
+             "The K-Hole experience is deeply personal and varies a lot. However, one thing they all seem to share is the sensation of falling. Not falling physically, but visually.",
+             "If you feel like you’re a comet, your tail undulating behind you, you may be in a K-Hole. ",
+             "Note: Comets are really big. Your tail could be up to 1 million kilometers long. No, I’m not going to translate that into miles, because in this K-Hole we believe in the metric system. Anyway. Feel how expansive you are. You could almost touch the stars, with your butt, if you relax the boundary between what is you and what is not you.",
+             "As you wiggle through the space/time continuum, which could be any color but let’s say is dark purple, you are seeing memories, sounds, shapes. VHS tapes. John Lilly riding a dolphin. Anything that comes in to your relaxed mind. If you can imagine it, you can manifest it in front of you.",
+             "If you made it this far, let’s reconnect with the physical world. ",
+             "Take your traveling companions. ",
+             "Decide who is the leader.",
+             "Make a “comet” formation behind the leader. Walk slowly through the space you are in, keeping in physical contact with one another. "
+          ],
+          "next":"dream_hole_noise",
+          "x":1,
+          "y":6
+       },
+       {
+          "id":"dream_hole_noise",
+          "msg":"In space, there is no noise, but make the kind of noise you would imagine a comet would make, and make them. I'll wait.",
+          "speech":"dream_hole_end",
+          "x":1,
+          "y":13
+       },
+       {
+          "id":"dream_hole_end",
+          "msg":"Be careful, even in a K-Hole the cars are real. If you are in another kind of reality hole, press 1.",
+          "transitions":[
+             "dream_choice"
+          ],
+          "end":true,
+          "x":1,
+          "y":14
+       }
+    ]
+ }

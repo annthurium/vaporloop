@@ -102,6 +102,20 @@ def GenerateEventSpeech(asWritten):
     }
     return [gatherer]
 
+def GenerateEventAudio(asWritten):
+    props = {
+        "play": asWritten["audio"],
+        "offset": { "x": asWritten["x"], "y": asWritten["y"]},
+        "loop": 1
+    }
+    event = {
+      "name": asWritten["id"],
+      "type": "say-play",
+      "transitions": [ { "next": asWritten["next"], "event": "audioComplete" } ],
+      "properties": props
+    }
+    return [event]
+
 
 def GenerateEventSingle(asWritten):
     id = asWritten["id"]
@@ -199,10 +213,12 @@ def GenerateFlow(states, y):
 def GenerateStates(f, mainMenu):
     if ("transitions" in f) or ("end" in f):
         return GenerateEventSet(f, mainMenu)
-    elif "url" in f:
-        return GeneratePlay(f)
     elif "speech" in f:
         return GenerateEventSpeech(f)
+    elif "audio" in f:       # Didn't realize when I first wrote this that there are intermediate audio events, too lazy to fix
+        return GenerateEventAudio(f)
+    elif "url" in f:
+        return GeneratePlay(f)
     elif "sequence" in f:
         return GenerateSequence(f)
     else:
