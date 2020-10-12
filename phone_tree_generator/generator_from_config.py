@@ -25,12 +25,17 @@ def load(filename):
 load("main_menu.json")
 load("pigeon.json")
 load("aol.json")
+
+load("yoga.json")
+load("dance.json")
+load("dream.json")
+
 load("dystopia_meta.json")
-
-#load("yoga.json")
-#load("dance.json")
-#load("dream.json")
-
+load("dystopia_wealth.json")
+load("dystopia_animal.json")
+load("dystopia_gender.json")
 
 # Generate the flow. The stupid bonus parameter is the top-most y-coordinate for the "trigger" event
-print json.dumps(generate_event.GenerateFlow(states, -2 * Y_CONST), indent=4)
+flow = generate_event.GenerateFlow(states, -2 * Y_CONST)
+#print len(flow["states"])
+print json.dumps(flow, indent=4)

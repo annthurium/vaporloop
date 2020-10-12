@@ -192,7 +192,7 @@ def GeneratePlay(asWritten):
 
 def GenerateFlow(states, y):
     flow =  {
-        "description": "Test Flow",
+        "description": "VaporPhone",
         "states": [{
             "name": "Trigger",
             "type": "trigger",
