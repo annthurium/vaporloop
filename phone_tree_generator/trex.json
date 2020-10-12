@@ -1,0 +1,15 @@
+{
+    "x-offset": 0,
+    "states": [
+        {   
+            "id": "trex_start",
+            "msg": "placeholder",
+            "transitions": [
+                "dolphin_scold_0",
+                "dolphin_gov_0"
+            ],
+            "x": 0,
+            "y": 2
+        }
+    ]
+}

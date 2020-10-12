@@ -1,0 +1,15 @@
+{
+    "x-offset": 3,
+    "states": [
+        {   
+            "id": "raccoon_start",
+            "msg": "placeholder",
+            "transitions": [
+                "dolphin_scold_0",
+                "dolphin_gov_0"
+            ],
+            "x": 0,
+            "y": 2
+        }
+    ]
+}

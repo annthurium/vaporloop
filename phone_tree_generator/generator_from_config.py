@@ -23,17 +23,21 @@ def load(filename):
 
 # Load all our config files. This should be a config file!
 load("main_menu.json")
-load("pigeon.json")
-load("aol.json")
+#load("pigeon.json")
+#load("aol.json")
 
-load("yoga.json")
-load("dance.json")
-load("dream.json")
+#load("yoga.json")
+#load("dance.json")
+#load("dream.json")
 
 load("dystopia_meta.json")
-load("dystopia_wealth.json")
+#load("dystopia_wealth.json")
 load("dystopia_animal.json")
-load("dystopia_gender.json")
+load("dolphin.json")
+load("raccoon.json")
+load("trex.json")
+
+#load("dystopia_gender.json")
 
 # Generate the flow. The stupid bonus parameter is the top-most y-coordinate for the "trigger" event
 flow = generate_event.GenerateFlow(states, -2 * Y_CONST)

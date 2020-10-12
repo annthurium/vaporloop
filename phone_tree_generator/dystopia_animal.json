@@ -3,9 +3,11 @@
     "states": [
         {   
             "id": "dystopia_animal",
-            "msg": "Placeholder",
+            "msg": "Just because you want to disregard all other systems of life on the planet on which we live, does not mean that you get to do that. Someone is going to fix this. Will it be you? Then you must transform. If you could be a dolphin, a t-rex, or a raccoon, what would you choose? Press 1 for dolphin. Press 2 for t-rex. Press 3 for raccoon.",
             "transitions": [
-                "dystopia_start"
+                "dolphin_start",
+                "trex_start",
+                "raccoon_start"
             ],
             "x": 0,
             "y": 1
