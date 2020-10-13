@@ -32,7 +32,7 @@
             "id": "dolphin_scold_escalate",
             "msg": "You fill the human’s skull with high pitched dolphin noise. They shriek in agony. They apologize. They say they’ll never again forget their BPA-free nalgene bottle during a night out. They’ll never use another disposable bottle again. Something, anything, to make it stop. You won by force. Was it worth it? To try deescalating, press 1. To try appealing to your representatives, press 2. To choose a different animal, press 3.",
             "transitions": [
-                "dolphin_scold_choice", "dolphin_gov", "dystopia_animal" 
+                "dolphin_scold_choice", "dolphin_gov_0", "dystopia_animal" 
             ],
             "end": true,
             "x": 0,
