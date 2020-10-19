@@ -10,7 +10,7 @@ def GenerateEventSet(asWritten, mainMenu):
     gatherer = {
         "name": id,
         "type": "gather-input-on-call",
-        "transitions": [{ "event": "speech" }, { "event": "timeout" }, { "event": "keypress",  "next": "split_based_on_" + id}],
+        "transitions": [{ "event": "speech" }, { "event": "timeout", "next": id}, { "event": "keypress",  "next": "split_based_on_" + id}],
         "properties": {
             "speech_timeout": "auto",
             "offset": {
@@ -23,7 +23,7 @@ def GenerateEventSet(asWritten, mainMenu):
             "stop_gather": True,
             "gather_language": "en",
             "profanity_filter": "true",
-            "timeout": 5
+            "timeout": 10
         }
     }
 
@@ -57,7 +57,8 @@ def GenerateEventSet(asWritten, mainMenu):
             }
             i= i + 1
             splitter["transitions"].append(transition)
-    
+
+    ## Go back to the main menu.
     end = ("end" in asWritten)
     if end:
         condition = {
@@ -73,7 +74,24 @@ def GenerateEventSet(asWritten, mainMenu):
             "conditions": [ condition ]
         }
         splitter["transitions"].append(transition)
-        gatherer["properties"]["say"] = gatherer["properties"]["say"] + " Press 0 to return to the main menu."
+        gatherer["properties"]["say"] = gatherer["properties"]["say"] + "\n\n Press 0 to return to the main menu."
+
+    ## By popular demand, listen to the instructions again.
+    condition = {
+        "friendly_name": "If value equal to " + str(9),
+        "arguments": [ "{{widgets." + gatherer["name"] + ".Digits}}"],
+        "type": "equal_to",
+        "value": 9
+    }
+
+    transition = {
+        "next": gatherer["name"],
+        "event": "match",
+        "conditions": [ condition ]
+    }
+    splitter["transitions"].append(transition)
+    gatherer["properties"]["say"] = gatherer["properties"]["say"] + " \n\n\n\n Press 9 to listen to these instructions again."
+
 
     return [gatherer, splitter]
 
@@ -85,7 +103,8 @@ def GenerateEventSpeech(asWritten):
     gatherer = {
         "name": id,
         "type": "gather-input-on-call",
-        "transitions": [{ "event": "speech", "next": asWritten["speech"] }, { "event": "timeout" }, { "event": "keypress"}],        "properties": {
+        "transitions": [{ "event": "speech", "next": asWritten["speech"] }, { "event": "timeout", "next": asWritten["speech"]}, { "event": "keypress"}],
+        "properties": {
             "speech_timeout": "auto",
             "offset": {
                 "x": asWritten["x"],
@@ -124,7 +143,7 @@ def GenerateEventSingle(asWritten):
     gatherer = {
         "name": id,
         "type": "gather-input-on-call",
-        "transitions": [{ "event": "speech" }, { "event": "timeout" }, { "event": "keypress"}],
+        "transitions": [{ "event": "speech" }, { "event": "timeout", "next": id }, { "event": "keypress"}],
         "properties": {
             "speech_timeout": "auto",
             "offset": {
@@ -137,7 +156,7 @@ def GenerateEventSingle(asWritten):
             "stop_gather": True,
             "gather_language": "en",
             "profanity_filter": "true",
-            "timeout": 5
+            "timeout": 10
         }
     }
     return [gatherer]
@@ -152,7 +171,7 @@ def GenerateSequence(asWritten):
         id = asWritten["id"] + "_" + str(i)
         y = asWritten["y"] + (i * Y_MOD * 2.5)
         x = asWritten["x"]
-        msg = m + " Press 1 to continue."
+        msg = m + " \n\n Press 1 to continue."
         next_state = asWritten["id"] + "_" + str(i + 1)
         if i == (len(msgs) - 1):
             next_state = asWritten["next"]
@@ -192,11 +211,18 @@ def GeneratePlay(asWritten):
 
 def GenerateFlow(states, y):
     flow =  {
+         "initial_state": "Trigger",
+         "flags": {
+            "allow_concurrent_calls": True
+        },
         "description": "VaporPhone",
         "states": [{
             "name": "Trigger",
             "type": "trigger",
-            "transitions": [ { "event": "incomingMessage" }, { "next": states[0]["name"],  "event": "incomingCall" }, { "event": "incomingRequest" }
+            "transitions": [
+                    { "event": "incomingMessage" },
+                    { "next": states[0]["name"],  "event": "incomingCall" },
+                    { "event": "incomingRequest" }
             ],
             "properties": {
                 "offset": {

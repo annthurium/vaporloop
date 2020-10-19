@@ -1,9 +1,16 @@
 {
     "x-offset": 0,
     "states": [
+	{
+	    "id": "play_welcome_sample",
+	    "audio": "https://crimson-kangaroo-7755.twil.io/assets/121048__thirsk__150-haunted-house-synth.wav",
+	    "next": "main_menu",
+	    "x":0,
+	    "y": -1
+	},
         {
-            "id": "main_menu", 
-            "msg": "This is a placeholder for the main menu. Press 1 to be attacked by goth pigeons", 
+            "id": "main_menu",
+            "msg": "Thank you for calling the BLING HOTLINE. \n\n The appearance of safety is important. To ensure the emotional safety of our customers, we must review any symptoms you may be experiencing.\n\n If you are experiencing an INSATIABLE URGE TO DANCE, press 1.\n\nIf you’re not sure if you are dreaming, press 2.\n\nIf you are disillusioned with our dystopian timeline and would like to choose another, press 3.\n\nIf you’re being chased by an army of health goth pigeons Press 4.\n\nIf you are trying to log in to america online press 5.\n\nIf you forgot all the options and do not want to listen to this menu again, press 7.\n\nYou are at the main menu.",
             "transitions": [
                 "dance_start",
                 "dream_start_0",
@@ -13,8 +20,8 @@
                 "yoga_start",
                 "yoga_start"
             ],
-            "x": 0, 
-            "y": -1
+            "x": 0,
+            "y": -2
         },
         {
             "id": "return_to_main_menu",

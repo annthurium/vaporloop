@@ -1,7 +1,7 @@
 {
     "x-offset": -7,
     "states": [
-        {   
+        {
             "id": "dystopia_wealth",
             "msg": "I am sorry. This is a dystopia. That means that it is bad. The thing you like is terrible. \n\n To reconsider your choices, ponder. Then, press 1 to change the accelerating concentration of money in the hands of the wealthy. There are no other options.",
             "transitions": [
@@ -10,7 +10,7 @@
             "x": 0,
             "y": 1
         },
-        {   
+        {
             "id": "dystopia_wealth_1",
             "msg": "To fight back with the oligarchy of art and love, press 1. To read the Necronomicon of taxes, press 2.",
             "transitions": [
@@ -43,9 +43,9 @@
         }, {
             "id": "disco_hate",
             "sequence": [
-                "Lots of people hated disco in 1970s. Anti-disco clubs that would pelt YMCA fans with marshmallows.  Old white radio hosts threw record burnings in crowded stadiums.",
-                "The backlash to Disco was homophobic and racist. More importantly, it wasn't even organic. Most of the clubs were secretly sponsored by radio stations. By tying people's identity with music, they could sell more advertisements.",
-                "The backlash to disco was so severe, that we still remember it. White supremacy was profitable in 1970s. It is profitable now. It always was." 
+                "Lots of people hated disco in 1970s.  Old white radio hosts threw public burnings of disco records in crowded stadiums that were located in minority neighborhoods.  Anti-disco clubs that would pelt YMCA fans with marshmallows.",
+                "The backlash to Disco was homophobic and racist. More importantly, it wasn't even organic. Most of the hate clubs were secretly sponsored by radio stations. By tying people's identity with music, they could sell more advertisements.",
+                "The backlash to disco was so severe, that we still remember to make fun of it. White supremacy was profitable in 1970s. It is profitable now. It always was."
             ],
             "next": "disco_hate_songs",
             "x": -1,
@@ -82,15 +82,15 @@
         }, {
             "id": "disco_love",
             "sequence": [
-                "We still have our music. In the 21st century, we talk about joy. We still steal our moments of happiness and revel in the freedoms we have.",
-                "Disco never died. It was relabeled as dance music and is still loved today" 
+                "Queer people still the music. It is the 21st century. We still talk about joy. We still steal our moments of happiness and revel in the freedoms we have. ",
+                "Disco never died. For example, ouse music emerged a Chicago club called the Warehouse, in existence from 1977 to 1983. Those DJs began in the disco scene.  "
             ],
             "next": "disco_love_songs",
             "x": 0,
             "y": 4
         }, {
             "id": "disco_love_songs",
-            "msg": "For the hot stuff of 1970s press 1. For the WAP press 2",
+            "msg": "Disco never died. Neither did the joy of quer people, or people of color. Through music, oppressed people continue to embrace their sexuality. For the hot stuff of 1970s press 1. For the WAP press 2",
             "transitions": [
                 "disco_love_1970s", "disco_love_2020"
             ],
@@ -130,7 +130,7 @@
             "y":5
         }, {
             "id": "dystopia_taxes",
-            "msg": "You are reading the Taxonomicon. The skull appendix cannot be read in English. To try Latin, press 1. To try Esperanto, press 2. To try objective linearity, press 3.",            
+            "msg": "You are reading the Taxonomicon. The skull appendix cannot be read in English. To try Latin, press 1. To try Esperanto, press 2. To try objective linearity, press 3.",
             "transitions": [
                 "taxes_latin_0",
                 "taxes_esperanto_0",
@@ -152,7 +152,7 @@
             "y": 3
         }, {
             "id": "taxes_linear",
-            "sequence": ["1975 1975-76 1975-76 All Assessors County The a after already appraised as assessed assessment. be bill cash cash change constructed, or full has in levels may means not occurred of of on or ownership property property property purchased, real real real reassessed reflect shown tax tax that the the the the thereafter to to under up valuation valuation.,the value value value, newly when full"],      
+            "sequence": ["1975 1975-76 1975-76 All Assessors County The a after already appraised as assessed assessment. be bill cash cash change constructed, or full has in levels may means not occurred of of on or ownership property property property purchased, real real real reassessed reflect shown tax tax that the the the the thereafter to to under up valuation valuation.,the value value value, newly when full"],
             "next": "taxes_femur",
             "x": 3,
             "y": 3
@@ -197,7 +197,7 @@
             "msg": "The first text was an excerpt from the infamous Proposition 13, which freezes California’s ability to tax property. There are two measures on the CA ballot this November that will allow more property to be taxed at its real value. Avoiding paying property taxes has allowed many billionaires to continue accumulating wealth and with it, power beyond the scope of California. \n\n Sometimes, voting is harm reduction. What is happenning locally where you are? \n\n  To come to another conclusion, press 1. To fight Jeff Bezos through other means, press 2. To choose another dystopia, press 3.",
             "transitions": [
                 "taxes_sterno_clavicular", "dystopia_wealth_1", "dystopia_start"
-            ],    
+            ],
             "end": true,
             "x":1,
             "y":7
@@ -206,7 +206,7 @@
             "msg": "The second text is from the Articles of Confederation, the precursor to the Constitution. It proceeds to enumerate groups that do not have protection under law. In November 2020, California will vote on allowing parolees to vote. \n\n Sometimes, voting is harm reduction. What is happening locally where you are? \n\n To come to another conclusion, press 1. To fight Jeff Bezos through other means, press 2. To choose another dystopia, press 3.",
             "transitions": [
                 "taxes_sterno_clavicular", "dystopia_wealth_1", "dystopia_start"
-            ],    
+            ],
             "end": true,
             "x":2,
             "y":7

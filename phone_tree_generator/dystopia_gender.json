@@ -1,7 +1,7 @@
 {
     "x-offset": 8,
     "states": [
-        {   
+        {
             "id": "dystopia_gender",
             "msg": "This one is a good thing, so we will not send our army of health goth pigeons after you. Welcome to the party. To call into the upcoming public comment session, press 1. To organize a protest march, press 2. To go outside of state power, press 3.",
             "transitions": [
@@ -31,25 +31,21 @@
         }, {
             "id": "gender_comment_rational",
             "sequence": [
-                "Years of effort to reform gender have failed.",
-                "Strict adherence to binary gender is no longer serving our communities.",
-                "Our time, glitter, and hormones are better spent on literally anything else.",
+                "Years of effort to reform gender have failed. \n\n Strict adherence to binary gender is no longer serving our communities. \n\n Our time, glitter, and hormones are better spent on literally anything else.",
                 "These are the FACTS that you will tell your elected official when, after many years of trying, they finally win at Candy Crush. Convinced by the magic of victory, they might believe you."
             ],
             "next": "gender_comment_end",
             "x": -3,
-            "y": 4            
+            "y": 4
         }, {
             "id": "gender_comment_real",
             "sequence": [
-                "Your supervisor may not be aware that essentialism is sooo second wave.",
-                "Gender isn’t vapor at all",
-                "Our actions determine our morals. If our elected officials do not act on your behalf, they will drown in the waves of the future. Most importantly, their careers shall absolutely NOT be mourned.",
+                "Your supervisor may not be aware that essentialism is sooo second wave. \n\n Gender isn’t vapor at all. \n\n Our actions determine our morals. If our elected officials do not act on your behalf, they will drown in the waves of the future. Most importantly, their careers shall absolutely NOT be mourned.",
                 "These are the feelings that you will tell your elected official. They are now aware of your feelings about their carreer. This will influence their vote."
             ],
             "next": "gender_comment_end",
             "x": -2,
-            "y": 4            
+            "y": 4
         }, {
             "id": "gender_comment_end",
             "msg": "Thank you for your participation in the politican process. To try another line of argument, press 1. To find another means of defunding gender, press 2. To go to a different dystopia, press 3.",
@@ -99,9 +95,8 @@
         }, {
             "id": "gender_anarchy",
             "sequence": [
-                "Most people imagine gender as a binary. Male at one end, female on the other end. Nonbinary people somewhere in the middle. It confuses me how easily humans can fall into binary, polarizing, black and white thinking.",
-                "What if we thought about gender as a cartesian coordinate system? A constellation? A galaxy?",
-                "What if gender was like being a raver, or a goth? You’d be expected to change and choose different flavors throughout your life. More self-expression, less oppression."             
+                "Most people imagine gender as a binary. Male at one end, female on the other end. Nonbinary people somewhere in the middle. It confuses me how easily humans can fall into binary, polarizing, black and white thinking? \n\n What if we thought about gender as a cartesian coordinate system? A constellation? A galaxy?",
+                "What if gender was like being a raver, or a goth? You’d be expected to change and choose different flavors throughout your life. More self-expression, less oppression."
             ],
             "next": "gender_anarchy_choice",
             "x": 1,

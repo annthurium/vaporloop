@@ -1,7 +1,7 @@
 {
     "x-offset": -3,
     "states": [
-        {   
+        {
             "id": "dolphin_start",
             "msg": "You are bobbling in the waves, happily chittering to your pod. You see a plastic water bottle in the ocean. It is poison. What do you do?  Press 1 to telepathically scold the human who did this. Press 2 to demand structural change from your representatives.",
             "transitions": [
@@ -25,14 +25,14 @@
             "transitions": [
                 "dolphin_scold_escalate",
                 "dolphin_scold_deescalate_0"
-            ], 
+            ],
             "x": 0,
             "y": 5
         }, {
             "id": "dolphin_scold_escalate",
             "msg": "You fill the human’s skull with high pitched dolphin noise. They shriek in agony. They apologize. They say they’ll never again forget their BPA-free nalgene bottle during a night out. They’ll never use another disposable bottle again. Something, anything, to make it stop. You won by force. Was it worth it? To try deescalating, press 1. To try appealing to your representatives, press 2. To choose a different animal, press 3.",
             "transitions": [
-                "dolphin_scold_choice", "dolphin_gov_0", "dystopia_animal" 
+                "dolphin_scold_choice", "dolphin_gov_0", "dystopia_animal"
             ],
             "end": true,
             "x": 0,
@@ -40,8 +40,7 @@
         },  {
             "id": "dolphin_scold_deescalate",
             "sequence": [
-                "You tell the human you’re sorry for coming on too strong. Since you live in the water all the time, you have no idea what it’s it’s like to be so dry. The human apologizes. You didn’t need a party invite, but now you have one...",
-                "You promise to mail the human some dolphin stickers for their BPA-free, reusable nalgene bottle."
+                "You tell the human you’re sorry for coming on too strong. Since you live in the water all the time, you have no idea what it’s it’s like to be so dry. The human apologizes. You promise to mail the human some dolphin stickers for their BPA-free, reusable nalgene bottle. You didn’t need a party invite, but now you have one..."
             ],
             "next": "dolphin_scold_deescalate_end",
             "x": 1,
@@ -50,7 +49,7 @@
             "id": "dolphin_scold_deescalate_end",
             "msg": "It hurts to be nice to someone who poisoned your home. Was it worth it? \n\n  To try escalating, press 1. To try appealing to your representatives, press 2. To choose a different animal, press 3.",
             "transitions": [
-                "dolphin_scold_choice", "dolphin_gov_0", "dystopia_animal" 
+                "dolphin_scold_choice", "dolphin_gov_0", "dystopia_animal"
             ],
             "end": true,
             "x": 1,
@@ -75,19 +74,17 @@
         }, {
             "id": "dolphin_gov_accept",
             "sequence": [
-                "You will make the future brighter, and healthier and a little more just, at least for dolphins.", 
-                "Go bask in the waves some more. You have earned it.",
-                "Did you know that as a dolphin you can translate your thoughts into any human language?",      
-                "Rest is an important part of activist practice, and play is a form of rest."
+                "You will make the future brighter, and healthier and a little more just, at least for dolphins.",
+                "Go bask in the waves some more. You have earned it. Rest is an important part of activist practice, and play is a form of rest."
             ],
             "next": "dolphin_gov_accept_end",
             "x": -1,
             "y": 6
-        }, { 
+        }, {
             "id": "dolphin_gov_accept_end",
             "msg": "To try passing a less popular motion, press 1. To try scolding the burner, press 2. To choose a different animal, press 3.",
             "transitions": [
-                "dolphin_gov_choice", "dolphin_start", "dystopia_animal" 
+                "dolphin_gov_choice", "dolphin_start", "dystopia_animal"
             ],
             "end": true,
             "x": -1,
@@ -96,18 +93,18 @@
 
             "id": "dolphin_gov_reject",
             "sequence": [
-                "Fine. You will show them. You join the Technology Studies reading group.",    
-                "Eventually, your proposal about biodegradable alternatives is accepted. You will make the future brighter for everyone.", 
-                "There is no rush in the Time Travel Committee, but eventually this will have happened."
+                "Fine. You will show them. You join the Technology Studies reading group.",
+                "Eventually, your proposal about biodegradable alternatives is accepted. You will make the future brighter for everyone.",
+                "There is no rush in the Time Travel Committee, but eventually your trip will have happened. Your one regret is that you will always be the only one to do any of the readings. "
             ],
             "next": "dolphin_gov_reject_end",
             "x": -2,
             "y": 6
-        }, { 
+        }, {
             "id": "dolphin_gov_reject_end",
-            "msg": "Your one regret is that you were the only one to do any of the readings. To try passing a more popular motion, press 1. To try scolding the burner, press 2. To choose a different animal, press 3.",
+            "msg": "To try passing a more popular motion, press 1. To try scolding the burner, press 2. To choose a different animal, press 3.",
             "transitions": [
-                "dolphin_gov_choice", "dolphin_start", "dystopia_animal" 
+                "dolphin_gov_choice", "dolphin_start", "dystopia_animal"
             ],
             "end": true,
             "x": -2,

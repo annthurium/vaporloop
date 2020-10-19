@@ -10,7 +10,7 @@ def getStates(f, x):
     f["x"] = (f["x"] + x)  * X_CONST
     f["y"] = f["y"] * Y_CONST
     # Generate states. The stupid bonus parameter is the main menu event.
-    return generate_event.GenerateStates(f, "main_menu") 
+    return generate_event.GenerateStates(f, "main_menu")
 
 # Infrastructure for loading config files
 states = []

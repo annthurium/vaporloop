@@ -7,8 +7,7 @@
              "Consciousness is a funny thing. If you think “I’m conscious” or “I’m unconscious” is a binary, you are wrong.",
              "Down with binaries! Unless you are a computer, beep boop, in which case I’ll allow it! Are you?",
              "Insomniacs regularly under-estimate the amount of sleep they are getting, because in the lighter stages of sleep, you might think you are awake. You blink your eyes, and suddenly a few hours pass. Like a time warp.",
-             "Being in a coma is also not a binary. People in comas may appear to be awake. May move. May blink their eyes.",
-             "Which is why the Glasgow Coma Scale exists, to answer the important existential question, “exactly how much of a coma are you in” because the answer matters in terms of making heart-wrenching decisions about the sort of care you’ll receive, or not."
+             "Being in a coma is also not a binary. People in comas may appear to be awake. May move. May blink their eyes. \n\n Which is why the Glasgow Coma Scale exists, to answer the important existential question, “exactly how much of a coma are you in” because the answer matters in terms of making heart-wrenching decisions about the sort of care you’ll receive, or not."
           ],
           "next":"dream_choice",
           "x":0,
@@ -45,9 +44,8 @@
        },
        {
           "id":"dream_coma_2",
-          "msg":"On the pain scale of infatuation to lizard, how much did that hurt? Please use the exact number between 1 and 9.",
+          "msg":"On the pain scale of infatuation to lizard, how much did that hurt? Please use the exact number between 1 and 8.",
           "transitions":[
-             "dream_coma_3",
              "dream_coma_3",
              "dream_coma_3",
              "dream_coma_3",
@@ -108,8 +106,7 @@
        {
           "id":"dream_narrative",
           "sequence":[
-             "The thing about dreams is that they have a non-linear narrative structure.",
-             "You’re in a magenta race car, speeding towards the geometric sunset with your stolen nanobots.",
+             "The thing about dreams is that they have a non-linear narrative structure. \n\n\n You’re in a magenta race car, speeding towards the geometric sunset with your stolen nanobots.",
              "Then suddenly and without warning, you’re on a surfboard, trying in vain to escape a blue screen of death, while a cyan seahorse giggles at you."
           ],
           "next":"dream_narrative_q",
@@ -143,14 +140,10 @@
        {
           "id":"dream_hole_speech",
           "sequence":[
-             "The K-Hole experience is deeply personal and varies a lot. However, one thing they all seem to share is the sensation of falling. Not falling physically, but visually.",
-             "If you feel like you’re a comet, your tail undulating behind you, you may be in a K-Hole. ",
+             "The K-Hole experience is deeply personal and varies a lot. However, one thing they all seem to share is the sensation of falling. Not falling physically, but visually. If you feel like you’re a comet, your tail undulating behind you, you may be in a K-Hole. ",
              "Note: Comets are really big. Your tail could be up to 1 million kilometers long. No, I’m not going to translate that into miles, because in this K-Hole we believe in the metric system. Anyway. Feel how expansive you are. You could almost touch the stars, with your butt, if you relax the boundary between what is you and what is not you.",
              "As you wiggle through the space/time continuum, which could be any color but let’s say is dark purple, you are seeing memories, sounds, shapes. VHS tapes. John Lilly riding a dolphin. Anything that comes in to your relaxed mind. If you can imagine it, you can manifest it in front of you.",
-             "If you made it this far, let’s reconnect with the physical world. ",
-             "Take your traveling companions. ",
-             "Decide who is the leader.",
-             "Make a “comet” formation behind the leader. Walk slowly through the space you are in, keeping in physical contact with one another. "
+             "If you made it this far, let’s reconnect with the physical world. Take your traveling companions. Decide who is the leader. Make a “comet” formation behind the leader. Walk slowly through the space you are in, keeping in physical contact with one another. "
           ],
           "next":"dream_hole_noise",
           "x":1,

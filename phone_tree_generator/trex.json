@@ -77,8 +77,7 @@
        {
           "id":"trex_apology",
           "sequence":[
-             "Being hunted for food is irritating. An earnest apology is not as good as action.",
-             "You learn about different plant-based alternatives, and how to farm them.",
+             "Being hunted for food is irritating. An earnest apology is not as good as action. \n\n You learn about different plant-based alternatives, and how to farm them.",
              "Sustainable farms allow dinosaurs to wait out the meteor underground. Destruction befalls the planet, but your kind survives."
           ],
           "next":"trex_apology_billions",
@@ -181,8 +180,8 @@
        {
           "id":"trex_friend_b",
           "sequence":[
-             "The triceratops’s name is Topsy, and they used to compete back in the day.",
-             "Knowledge is power. Sometimes, the transfer of that knowledge is an act of love. You begin to follow sports together."
+              "The triceratops’s name is Topsy, and they used to compete back in the day. \n\n Knowledge is power. Sometimes, the transfer of that knowledge is an act of love. \n\n You begin to follow sports together.",
+	      "You spend many hours, side by side, revelling in your new-found interest."
           ],
           "next":"trex_friend_b_choice",
           "x":3,
