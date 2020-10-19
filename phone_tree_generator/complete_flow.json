@@ -17,7 +17,7 @@
             "name": "Trigger", 
             "properties": {
                 "offset": {
-                    "y": -800, 
+                    "y": -1600, 
                     "x": 0
                 }
             }
@@ -35,7 +35,7 @@
                 "play": "https://crimson-kangaroo-7755.twil.io/assets/121048__thirsk__150-haunted-house-synth.wav", 
                 "loop": 1, 
                 "offset": {
-                    "y": -400, 
+                    "y": -1600, 
                     "x": 0
                 }
             }
@@ -61,7 +61,7 @@
                 "finish_on_key": "#", 
                 "timeout": 10, 
                 "offset": {
-                    "y": -800, 
+                    "y": -1200, 
                     "x": 0
                 }, 
                 "gather_language": "en", 
@@ -194,7 +194,7 @@
             "properties": {
                 "input": "{{widgets.main_menu.Digits}}", 
                 "offset": {
-                    "y": -650, 
+                    "y": -1050, 
                     "x": 0
                 }
             }
@@ -220,7 +220,7 @@
                 "finish_on_key": "#", 
                 "timeout": 10, 
                 "offset": {
-                    "y": -400, 
+                    "y": -1200, 
                     "x": -300
                 }, 
                 "gather_language": "en", 
@@ -269,7 +269,7 @@
             "properties": {
                 "input": "{{widgets.return_to_main_menu.Digits}}", 
                 "offset": {
-                    "y": -250, 
+                    "y": -1050, 
                     "x": -300
                 }
             }

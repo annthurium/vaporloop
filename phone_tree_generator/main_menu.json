@@ -6,7 +6,7 @@
 	    "audio": "https://crimson-kangaroo-7755.twil.io/assets/121048__thirsk__150-haunted-house-synth.wav",
 	    "next": "main_menu",
 	    "x":0,
-	    "y": -1
+	    "y": -3
 	},
         {
             "id": "main_menu",
@@ -28,7 +28,7 @@
             "msg": "Press 0 to return to the main menu. To hang up, hang up.",
             "end": true,
             "x": -1,
-            "y": -1
+            "y": -2
         }
     ]
 }

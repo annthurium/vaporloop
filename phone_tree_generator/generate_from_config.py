@@ -40,6 +40,6 @@ load("trex.json")
 load("dystopia_gender.json")
 
 # Generate the flow. The stupid bonus parameter is the top-most y-coordinate for the "trigger" event
-flow = generate_event.GenerateFlow(states, -2 * Y_CONST)
+flow = generate_event.GenerateFlow(states, -4 * Y_CONST)
 #print len(flow["states"])
 print json.dumps(flow, indent=4)
