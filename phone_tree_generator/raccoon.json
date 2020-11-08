@@ -1,0 +1,217 @@
+{
+    "x-offset":3,
+    "states":[
+       {
+          "id":"raccoon_start",
+          "msg":"The year is 1988. You are cruising downhill on a longboard.  You’ve been bitten by a hot pink spider. Your beautiful life is rainbows and trash.",
+          "transitions":[
+             "raccoon_choice"
+          ],
+          "x":0,
+          "y":2
+       },
+       {
+          "id":"raccoon_choice",
+          "msg":"You pass by a human male. Your spidey senses are tingling. Press 1 to jump off your skateboard and bite him. Press 2 to skate on by your merry way.",
+          "transitions":[
+             "raccoon_bite",
+             "raccoon_skate"
+          ],
+          "x":0,
+          "y":3
+       },
+       {
+          "id":"raccoon_bite",
+          "msg":"Wow, this human has terrible hair. You bite him, and he goes off to have some allergic reaction to the rabies vaccine. You don’t even have rabies. Press 1 to spy on him in the hospital. Press 2 to go on the run from animal control.",
+          "transitions":[
+             "raccoon_bite_spy",
+             "raccoon_bite_escape"
+          ],
+          "x":0,
+          "y":4
+       },
+       {
+          "id":"raccoon_bite_spy",
+          "msg":"In the hospital, your victim, Aaron Sorkin makes die hard speeches to everyone around him. Noise cancelling headphones are hard to come by, so the nurse gives him sedatives. Press 1 to throw trash. Press 2 to scratch messages on the window.",
+          "transitions":[
+             "raccoon_bite_spy_trash_0",
+             "raccoon_bite_spy_scratch_0"
+          ],
+          "x":0,
+          "y":5
+       },
+       {
+          "id":"raccoon_bite_spy_trash",
+          "sequence":[
+             "An old yogurt cup hits the hospital window, just as Sorkin is about to launch into a monologue.",
+             "'I hate yogurt cups,' Aaron Sorkin screams. Then, he dedicates his life to passionate, uncompromising environmentalism. His tone policing falls by the wayside of history and he stops writing terrible female characters."
+          ],
+          "next":"raccoon_bite_spy_end",
+          "x":0,
+          "y":6
+       },
+       {
+          "id":"raccoon_bite_spy_scratch",
+          "sequence":[
+             "'Actually, women are people,' you write on the window. It isn’t perfect — you are a raccoon, not an artist, but Sorkin’s eyes light up.",
+             " Aaron Sorkin has an epiphany. He screams: What if instead of making shows where old white men endlessly lecture young women, I — You await the answer eagerly."
+          ],
+          "next":"raccoon_bite_discuss",
+          "x":1,
+          "y":6
+       },
+       {
+          "id":"raccoon_bite_discuss",
+          "msg":"What should Sorkin write instead? Discuss with your group. Then write it. We don’t need to undo this world, but we must build a better one. I will wait.",
+          "speech":"raccoon_bite_spy_end",
+          "x":1,
+          "y":8
+       },
+       {
+          "id":"raccoon_bite_spy_end",
+          "msg":"Your legacy lives on in the history that never was. Thank you, raccoon. To do something else in the hospital, press 1. To escape the hospital, press 2. To skate on, press 3. To try a different animal, press 4.",
+          "transitions":[
+             "raccoon_bite_spy",
+             "raccoon_bite",
+             "raccoon_choice",
+             "dystopia_animal"
+          ],
+          "end":true,
+          "x":0,
+          "y":9
+       },
+       {
+          "id":"raccoon_bite_escape",
+          "msg":"The sky calls you. You jump into the air, screeching at the top of your lungs. Press 1 to hitch a ride with a seagull. Press 2 to spin your board like a parachute.",
+          "transitions":[
+             "raccoon_bite_escape_gull",
+             "raccoon_bite_escape_parachute"
+          ],
+          "x":-1,
+          "y":5
+       },
+       {
+          "id":"raccoon_bite_escape_gull",
+          "msg":"Seagulls don’t like hugs. 'Let go of me,' the seagull says, so you try to explain. To say that you had to change the course of history, press 1. To point at the animal control, press 2.",
+          "transitions":[
+             "raccoon_bite_history_0",
+             "raccoon_bite_control_0"
+          ],
+          "x":-1,
+          "y":6
+       },
+       {
+          "id":"raccoon_bite_history",
+          "sequence":[
+             "'I had to go bite a playwright,' you say.",
+             "'Are his plays performed outdoors?' the seagull asks you as you cling tightly.",
+             "'No, you say, so the seagull drops you straight into the ocean. Luckily, you surf your way out."
+          ],
+          "next":"raccoon_escape_end",
+          "x":-1,
+          "y":7
+       },
+       {
+          "id":"raccoon_escape_end",
+          "msg":"Your legacy lives on in the history that never was. Thank you, raccoon. To do escape differently, press 1. To stay in the hospital, press 2. To skate on, press 3. To try a different animal, press 4.",
+          "transitions":[
+             "raccoon_bite_escape",
+             "raccoon_bite",
+             "raccoon_choice",
+             "dystopia_animal"
+          ],
+          "end":true,
+          "x":-1,
+          "y":10
+       },
+       {
+          "id":"raccoon_bite_control",
+          "sequence":[
+             "'They look kind of rabid,' the seagull says about animal control, 'They should get some shots.' You agree whole-heartedly.",
+             "As the two of you soar over the city, the seagull spies some trash worth devouring. You don’t mind. Every dumpster is home to a vapor racoon."
+          ],
+          "next":"raccoon_escape_end",
+          "x":-2,
+          "y":7
+       },
+       {
+          "id":"raccoon_bite_escape_parachute",
+          "msg":"You put your board in the air and start spinning. Your arms hurt. Your tiny legs hurt. You crash onto an awning of a yuppie cafe.",
+          "transitions":[
+             "raccoon_cafe"
+          ],
+          "x":-3,
+          "y":6
+       },
+       {
+          "id":"raccoon_cafe",
+          "msg":"'Is that a raccoon, or worse, a raver?' someone screams. To sing a pop song, press 1. To ask for cocaine, press 2",
+          "transitions":[
+             "raccoon_song",
+             "raccoon_cocaine_1"
+          ],
+          "x":-3,
+          "y":7
+       },
+       {
+          "id":"raccoon_song",
+          "url":"https://web.mit.edu/ekate/Public/pop.mp3",
+          "x":-3,
+          "y":8
+       },
+       {
+          "id":"raccoon_cocaine_1",
+          "msg":"Thank god that you are just a stock broker' the waiter says. 'For some reason, I thought that you were trash.'  Press 1 to continue.",
+          "transitions":[
+             "raccoon_cocaine_2"
+          ],
+          "x":-4,
+          "y":9
+       },
+       {
+          "id":"raccoon_cocaine_2",
+          "url":"https://web.mit.edu/ekate/Public/greed.mp3",
+          "x":-4,
+          "y":10
+       }, {
+           "id": "raccoon_skate",
+           "msg": "You’re thinking about getting involved in something, but you’re not sure what. How do you know what the most effective use of your time even is? There are so many things you could be doing. To cruise a hill press 1. To root through garbage, press 2.",
+           "transitions": [
+               "raccoon_hill", "raccoon_trash"
+           ],
+           "x":1,
+           "y":4 
+       }, {
+           "id": "raccoon_hill",
+           "msg": "You crest up, just as the sun goes down. Clouds envelop you. It is paradise. Press 1 to check the timeline.",
+           "transitions": ["raccoon_hill_2"],
+           "x": 1,
+           "y": 5
+       }, {
+           "id": "raccoon_hill_2",
+           "msg": "The timeline remains the same, but that tiny moment of perfection lives in your raccoon heart forever. If there are other groups of players nearby, I want you to ask them some questions. Don’t worry, I’ll wait. What moment would be perfect for you, right now?",
+           "speech": "raccoon_skate_end",
+           "x": 1,
+           "y": 6 
+       }, {
+           "id": "raccoon_trash",
+           "msg": "You find a half-eaten sandwich, some electronics and a used shoulder pad. What would you do with any of these? Press one to think about it and check the effect on the timeline.",
+           "transitions": ["raccoon_trash_2"],
+           "x": 2,
+           "y": 5
+       }, {
+        "id": "raccoon_trash_2",
+        "msg": "he years pass, and the timeline remains the same as our current one.  It’s not too late. You can’t change the past, but you can always change the future. If there are other groups of players nearby, I want you to ask them some questions. Don’t worry, I’ll wait. If nobody else is nearby, just tell me your answers instead. What’s one thing about the past you would change, if you could?",
+        "speech": "raccoon_skate_end",
+        "x": 2,
+        "y": 6 
+      }, {
+           "id": "raccoon_skate_end",
+           "msg": "To go a different route, press 1. To bite him, press 2. To choose a different animal, press 3",
+           "transitions": [ "raccoon_skate", "raccoon_bite", "dystopia_animal"],
+           "end": true,
+           "x": 1,
+           "y": 7
+       }
+    ]
+ }

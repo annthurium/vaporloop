@@ -1,0 +1,227 @@
+{
+    "x-offset":0,
+    "states":[
+       {
+          "id":"trex_start",
+          "msg":"You are lurking in the shadows. You see a lone triceratops. You are hungry. Yet you are also weary of this cruel, dino-eat-dino world. What do you do? Press 1 to chase after them.  Press 2 to befriend them.",
+          "transitions":[
+             "trex_chase",
+             "trex_friend"
+          ],
+          "x":0,
+          "y":2
+       },
+       {
+          "id":"trex_chase",
+          "msg":"You catch the triceratops. They beg for their life. You just don’t have this in you today, so you let them live.",
+          "transitions":[
+             "trex_chase_1"
+          ],
+          "x":0,
+          "y":3
+       },
+       {
+          "id":"trex_chase_1",
+          "msg":"You get so hungry, that you bite into a fern. Fern is one of the oldest genres of plants, but it is surprisingly delicious, and you are surprised. To dedicate your life to plant-based carnivore alternatives, press 1. To apologize to the triceratops, press 2.",
+          "transitions":[
+             "trex_vegan_0",
+             "trex_apology_0"
+          ],
+          "x":0,
+          "y":4
+       },
+       {
+          "id":"trex_vegan",
+          "sequence":[
+             "You discover that, hey, plants can actually be pretty filling! Other T-Rexes agree with you. Every day, you feast.",
+             "The triceratops are freed from the pressure of avoiding predators. They look to the skies. Genius dinosaur scientists see the meteor coming. It isn’t even a crisis. They planned for this. Nothing of note happens to anyone."
+          ],
+          "next":"trex_vegan_billions",
+          "x":0,
+          "y":5
+       },
+       {
+          "id":"trex_vegan_billions",
+          "msg":"Billions of years pass. You see a lone triceratops take your parking spot at the local vegan co-op. Press 1 to chase after them. Press 2 to try to befriend them.",
+          "transitions":[
+             "trex_vegan_billions_a",
+             "trex_vegan_billions_b"
+          ],
+          "x":0,
+          "y":10
+       },
+       {
+          "id":"trex_vegan_billions_a",
+          "msg":"Now everyone is angry. What a mess. You are so just, like, getting a bicycle. \n\n To chase the triceratops again, press 1. To befriend the triceratops, press 2. To choose a different animal, press 3.",
+          "transitions":[
+             "trex_chase_1",
+             "trex_friend",
+             "dystopia_animal"
+          ],
+          "end":true,
+          "x":0,
+          "y":11
+       },
+       {
+          "id":"trex_vegan_billions_b",
+          "msg":"The triceratops helps you carry your groceries to the car and you start chatting. Suddenly, you are so glad that you had to park so far away, and that they gave you their number. \n\n To chase the triceratops again, press 1. To befriend the triceratops, press 2. To choose a different animal, press 3.",
+          "transitions":[
+             "trex_chase_1",
+             "trex_friend",
+             "dystopia_animal"
+          ],
+          "end":true,
+          "x":-1,
+          "y":11
+       },
+       {
+          "id":"trex_apology",
+          "sequence":[
+             "Being hunted for food is irritating. An earnest apology is not as good as action. \n\n You learn about different plant-based alternatives, and how to farm them.",
+             "Sustainable farms allow dinosaurs to wait out the meteor underground. Destruction befalls the planet, but your kind survives."
+          ],
+          "next":"trex_apology_billions",
+          "x":-2,
+          "y":5
+       },
+       {
+          "id":"trex_apology_billions",
+          "msg":"Billions of years pass. On the way to the vegan co-op, you collide with a skateboarding triceratops.",
+          "transitions":[
+             "trex_apology_billions_a",
+             "trex_apology_billions_b"
+          ],
+          "x":-2,
+          "y":10
+       },
+       {
+          "id":"trex_apology_billions_a",
+          "msg":"Woah! They are fast. You are so jealous! Dinosaurs on a skateboard? You are going to get one right now. \n\n To chase the triceratops again, press 1. To befriend the triceratops, press 2. To choose a different animal, press 3.",
+          "transitions":[
+             "trex_chase_1",
+             "trex_friend",
+             "dystopia_animal"
+          ],
+          "end":true,
+          "x":-2,
+          "y":11
+       },
+       {
+          "id":"trex_apology_billions_b",
+          "msg":"They are just in a hurry to an ultra-cool party. There will be ferns. Do you want to come? You definitely want to come. \n\nTo chase the triceratops again, press 1. To befriend the triceratops, press 2. To choose a different animal, press 3. ",
+          "transitions":[
+             "trex_chase_1",
+             "trex_friend",
+             "dystopia_animal"
+          ],
+          "end":true,
+          "x":-3,
+          "y":11
+       },
+       {
+          "id":"trex_friend",
+          "msg":"The triceratops is extremely skeptical that you want to be their friend. They have a point. Press 1 to not blame them.",
+          "transitions":[
+             "trex_friend_1"
+          ],
+          "x":1,
+          "y":3
+       },
+       {
+          "id":"trex_friend_1",
+          "msg":"When you sigh, and gather up some ferns as a peace offering, the triceratops is impressed. You sit in the shade and chat, while they gnaw on the ferns and talk about the Majestic Mosasaurs. If you also follow the Majestic Mosasaurs, press 1. If you don’t know the rules, press 2.",
+          "transitions":[
+             "trex_friend_a",
+             "trex_friend_b_0"
+          ],
+          "x":1,
+          "y":4
+       },
+       {
+          "id":"trex_friend_a",
+          "msg":"The triceratops’s name is Topsy.  You start watching the games together.  Soon, you want so much more. To finally confess your crush, press 1. To wait, press 2.",
+          "transitions":[
+             "trex_friend_a_confess",
+             "trex_friend_a_wait"
+          ],
+          "x":1,
+          "y":5
+       },
+       {
+          "id":"trex_friend_a_confess",
+          "msg":"You gather up your courage, but you just blurt it out one day but it is ok they kiss you back and it is all salt and flowers and you never want to let go.",
+          "speech":"trex_friend_end",
+          "x":1,
+          "y":6
+       },
+       {
+          "id":"trex_friend_a_wait",
+          "msg":"To wait, stay on the line.",
+          "speech":"trex_friend_a_wait_1",
+          "x":2,
+          "y":6
+       },
+       {
+          "id":"trex_friend_a_wait_1",
+          "msg":"To wait, press 1",
+          "transitions":[
+             "trex_friend_a_wait_end"
+          ],
+          "x":2,
+          "y":7
+       },
+       {
+          "id":"trex_friend_a_wait_end",
+          "msg":"You feel like a coward when they tell you first, and Topsy doesn’t care if this is weird, and you don’t either and you go see a Majestic Mosasaurs match together, and if anyone has problems with this, well, you’ve got really big teeth.",
+          "speech":"trex_friend_end",
+          "x":2,
+          "y":8
+       },
+       {
+          "id":"trex_friend_b",
+          "sequence":[
+              "The triceratops’s name is Topsy, and they used to compete back in the day. \n\n Knowledge is power. Sometimes, the transfer of that knowledge is an act of love. \n\n You begin to follow sports together.",
+	      "You spend many hours, side by side, revelling in your new-found interest."
+          ],
+          "next":"trex_friend_b_choice",
+          "x":3,
+          "y":5
+       },
+       {
+          "id":"trex_friend_b_choice",
+          "msg":"To strategically confess your crush press 1. To just blurt it out, press 2.",
+          "transitions":[
+             "trex_friend_b_confess",
+             "trex_friend_b_blurt"
+          ],
+          "x":3,
+          "y":6
+       },
+       {
+          "id":"trex_friend_b_confess",
+          "msg":"For their birthday, you get them tickets to the Majestic Mosasaurs match. Have they ever been happier? You are watching them when they suddenly blurt out that they are falling in love with you.",
+          "speech":"trex_friend_end",
+          "x":3,
+          "y":7
+       },
+       {
+          "id":"trex_friend_b_blurt",
+          "msg":"'Well,' Topsy says, 'so do I' and even though it isn’t dramatic, you melt inside, just a little bit more, and together, the two of you remake the world.",
+          "speech":"trex_friend_end",
+          "x":4,
+          "y":7
+       },
+       {
+          "id":"trex_friend_end",
+          "msg":"To befriend the triceratops again, press 1. To give chase, press 2. To choose a different animal, press 3. ",
+          "transitions":[
+             "trex_friend",
+             "trex_chase",
+             "dystopia_animal"
+          ],
+          "end":true,
+          "x":1,
+          "y":8
+       }
+    ]
+ }

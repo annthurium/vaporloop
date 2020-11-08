@@ -1,0 +1,16 @@
+{
+    "x-offset":0,
+    "states":[
+        {
+            "id": "dystopia_start",
+            "msg": "What are the aspects of a dystopian timeline you are the most satisfied with? For “Concentration of wealth and power in the hands of the Jeff Bezos” press 1. For “Upcoming annihilation of all human and also non-human life on this planet” press 2. For the “Campaign to defund gender”, press 3",
+            "transitions": [
+                "dystopia_wealth",
+                "dystopia_animal",
+                "dystopia_gender"
+            ],
+            "x": 0,
+            "y": 0
+        }
+   ]
+}

@@ -1,0 +1,53 @@
+{
+    "x-offset":-15,
+    "states":[
+       {
+          "id":"dance_start",
+          "msg":"When I want to go dancing, the first thing I do is put on a cute outfit. \n\nYou said you’re already in a dancing mood, but I’m curious. What are you wearing?",
+          "speech":"dance_speech_0",
+          "x":0,
+          "y":-1
+       },
+       {
+          "id":"dance_speech",
+          "sequence":[
+             "That’s the perfect thing to dance in! I’m wearing a procedurally generated description of a vaporwave outfit.",
+             "The first time I fell in love, I was 17. I snuck out to go to a rave. I was wearing baggy JNCO jeans and a lavender tank top. I’d hand written the words “synthesizers have feelings too” on it in a sharpie. At the rave, I saw a girl with killer dimples, spiky magenta hair, and blue eyes. She also had a handwritten slogan scrawled across her tank top. I knew I was queer, but I had never kissed a girl before. I didn’t know how to make that happen. That pink-haired babe came up to me, smiled, and told me her name was Charlie. That turned out to be a lie, but she told me I was cute and pressed her lips into mine, and nothing else mattered after that."
+          ],
+          "next":"dance_love",
+          "x":0,
+          "y":0
+       },
+       {
+          "id":"dance_love",
+          "msg":"Put the person next to you on the line. Ask them to tell me about the first time that they fell in love. Press 1 when they’ve done so.",
+          "transitions":[
+             "dance_choice"
+          ],
+          "x":0,
+          "y":2
+       },
+       {
+          "id":"dance_choice",
+          "msg":"I would say “dance like nobody is watching” but this isn’t a fucking yogurt commercial or a Pinterest board full of trite inspirational phrases. Press 1 if you feel like dancing fast. Press 2 if you feel like dancing slow.",
+          "transitions":[
+             "dance_fast",
+             "dance_slow"
+          ],
+          "x":0,
+          "y":3
+       },
+       {
+          "id":"dance_fast",
+          "url":"https://files.freemusicarchive.org/storage-freemusicarchive-org/music/no_curator/Anonymous420/Anonymous420_-_Singles/Anonymous420_-_05_-_no.mp3",
+          "x":-1,
+          "y":4
+       },
+       {
+          "id":"dance_slow",
+          "url":"https://files.freemusicarchive.org/storage-freemusicarchive-org/music/Reverse_Engine/Water_Features/Water_Features/Water_Features_-_05_-_Acclimation_Studio_Mix.mp3",
+          "x":1,
+          "y":4
+       }
+    ]
+ }

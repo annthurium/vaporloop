@@ -1,0 +1,114 @@
+{
+    "x-offset": -3,
+    "states": [
+        {
+            "id": "dolphin_start",
+            "msg": "You are bobbling in the waves, happily chittering to your pod. You see a plastic water bottle in the ocean. It is poison. What do you do?  Press 1 to telepathically scold the human who did this. Press 2 to demand structural change from your representatives.",
+            "transitions": [
+                "dolphin_scold_0",
+                "dolphin_gov_0"
+            ],
+            "x": 0,
+            "y": 2
+        }, {
+            "id": "dolphin_scold",
+            "sequence" : [
+                "Did you know that as a dolphin you can translate your thoughts into any human language?",
+                "With your mind, you locate the human. They live in San Francisco. Their head hurts. Their mouth is dry. It isn’t deadly virus, it is just a hangover. The Baker Beach was lovely last night. The moon was full and they partied so hard. They stopped for a water bottle at a local bodega."
+            ],
+            "next": "dolphin_scold_choice",
+            "x": 0,
+            "y": 3
+        }, {
+            "id": "dolphin_scold_choice",
+            "msg":"'Fuck you, I was thirsty!' they shout at you through the pain, 'What was I supposed to do?' \n\n Press 1 to escalate the conflict. Press 2 to de-escalate the conflict.",
+            "transitions": [
+                "dolphin_scold_escalate",
+                "dolphin_scold_deescalate_0"
+            ],
+            "x": 0,
+            "y": 5
+        }, {
+            "id": "dolphin_scold_escalate",
+            "msg": "You fill the human’s skull with high pitched dolphin noise. They shriek in agony. They apologize. They say they’ll never again forget their BPA-free nalgene bottle during a night out. They’ll never use another disposable bottle again. Something, anything, to make it stop. You won by force. Was it worth it? To try deescalating, press 1. To try appealing to your representatives, press 2. To choose a different animal, press 3.",
+            "transitions": [
+                "dolphin_scold_choice", "dolphin_gov_0", "dystopia_animal"
+            ],
+            "end": true,
+            "x": 0,
+            "y": 6
+        },  {
+            "id": "dolphin_scold_deescalate",
+            "sequence": [
+                "You tell the human you’re sorry for coming on too strong. Since you live in the water all the time, you have no idea what it’s it’s like to be so dry. The human apologizes. You promise to mail the human some dolphin stickers for their BPA-free, reusable nalgene bottle. You didn’t need a party invite, but now you have one..."
+            ],
+            "next": "dolphin_scold_deescalate_end",
+            "x": 1,
+            "y": 6
+        }, {
+            "id": "dolphin_scold_deescalate_end",
+            "msg": "It hurts to be nice to someone who poisoned your home. Was it worth it? \n\n  To try escalating, press 1. To try appealing to your representatives, press 2. To choose a different animal, press 3.",
+            "transitions": [
+                "dolphin_scold_choice", "dolphin_gov_0", "dystopia_animal"
+            ],
+            "end": true,
+            "x": 1,
+            "y": 8
+        }, {
+            "id": "dolphin_gov",
+            "sequence" : [
+                "Did you know that dolphins live in a socialist society? There is conflict, of course. Who is going to clean the barnacles? Should you provide mutual aid to the jellyfish?  Should the minutes be bubbled to the surface, or pinned to the seaweed? What if we had, like, a rotation for this barnacle, I am not saying that it is a problem, but  maybe the jellyfish could contribute? Their inaction just stings.",
+                "You wave your fin and Robert floats over. Robert is in charge of keeping the rules in order."
+            ],
+            "next": "dolphin_gov_choice",
+            "x": -1,
+            "y": 3
+        }, {
+            "id": "dolphin_gov_choice",
+            "msg": "You make a motion to send a dolphin on a mission to travel back in time and prevent plastic from being invented. If the motion is accepted, press 1. If the motion is stuck in committee, press 2.",
+            "transitions": [
+                "dolphin_gov_accept_0", "dolphin_gov_reject_0"
+            ],
+            "x": -1,
+            "y": 5
+        }, {
+            "id": "dolphin_gov_accept",
+            "sequence": [
+                "You will make the future brighter, and healthier and a little more just, at least for dolphins.",
+                "Go bask in the waves some more. You have earned it. Rest is an important part of activist practice, and play is a form of rest."
+            ],
+            "next": "dolphin_gov_accept_end",
+            "x": -1,
+            "y": 6
+        }, {
+            "id": "dolphin_gov_accept_end",
+            "msg": "To try passing a less popular motion, press 1. To try scolding the burner, press 2. To choose a different animal, press 3.",
+            "transitions": [
+                "dolphin_gov_choice", "dolphin_start", "dystopia_animal"
+            ],
+            "end": true,
+            "x": -1,
+            "y": 10
+        }, {
+
+            "id": "dolphin_gov_reject",
+            "sequence": [
+                "Fine. You will show them. You join the Technology Studies reading group.",
+                "Eventually, your proposal about biodegradable alternatives is accepted. You will make the future brighter for everyone.",
+                "There is no rush in the Time Travel Committee, but eventually your trip will have happened. Your one regret is that you will always be the only one to do any of the readings. "
+            ],
+            "next": "dolphin_gov_reject_end",
+            "x": -2,
+            "y": 6
+        }, {
+            "id": "dolphin_gov_reject_end",
+            "msg": "To try passing a more popular motion, press 1. To try scolding the burner, press 2. To choose a different animal, press 3.",
+            "transitions": [
+                "dolphin_gov_choice", "dolphin_start", "dystopia_animal"
+            ],
+            "end": true,
+            "x": -2,
+            "y": 10
+        }
+    ]
+}
