@@ -48,6 +48,47 @@ app.post("/api/participants", async (request, response, next) => {
   );
 });
 
+/** This endpoint is currently deprecated 🐬😭
+ * leaving this function here for readability
+ * since I'm presenting a short demo about how the application worked during its glory days.
+ */
+const vaporloopVoiceOfGodNumber = "+17073485740";
+app.post("/api/messages", async (request, response, next) => {
+  const subscribedParticipants = await getAllSubscribedParticipants(
+    base,
+    tableName
+  );
+
+  const messageBody = request.body.Body;
+  try {
+    // special case: we need to be able to tell participants how to unsubscribe
+    // if the voice of god sends a message containing the text "unsubscribe"
+    // don't actually unsubscribe!!
+    if (
+      request.body.From !== vaporloopVoiceOfGodNumber &&
+      messageBody.toLowerCase().includes("unsubscribe")
+    ) {
+      await unsubscribeParticipant(
+        request.body.From,
+        base,
+        subscribedParticipants
+      );
+      response.status(200).send("successful unsubscribe");
+    } else {
+      await broadcastGroupChatMessage(
+        request.body.From,
+        messageBody,
+        subscribedParticipants,
+        request.body.MediaUrl0
+      );
+      response.status(200).send("message broadcasted successfully");
+    }
+  } catch (error) {
+    console.error(error);
+    return /* thank u, */ next(error);
+  }
+});
+
 // this isn't proper RESTful API design
 // but you can only GET and POST with twilio anyway
 // and I'm kind of out of fucks at the moment so YOLO

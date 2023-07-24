@@ -31,6 +31,6 @@ npm start
 
 ## Deploying the application
 
-The app is automatically deployed to Heroku when new branches are merged in to master.
+The app is automatically deployed to Heroku when new branches are merged in to main.
 
 If you add new environment variables, you'll need to add them to the Heroku console in order for the app to run correctly.
