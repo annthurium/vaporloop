@@ -48,6 +48,10 @@ app.post("/api/participants", async (request, response, next) => {
   );
 });
 
+/** This endpoint is currently deprecated 🐬😭
+ * leaving this function here for readability
+ * since I'm presenting a short demo about how the application worked during its glory days.
+ */
 const vaporloopVoiceOfGodNumber = "+17073485740";
 app.post("/api/messages", async (request, response, next) => {
   const subscribedParticipants = await getAllSubscribedParticipants(

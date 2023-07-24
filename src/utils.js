@@ -2,11 +2,12 @@
 const airtable = require("airtable");
 const twilio = require("twilio");
 
-// TODO: change this before you merge!!
+
 // this const is so that we can easily read/write from a test table under development
 // and not mess with "prod" data.
 // change this const to "participants" when you're ready to party.
-const tableName = "participants";
+// could have made this an enviornment variable, I guess? 🤷🏻‍♂️
+const tableName = "test";
 
 // memoize this because why the fuck not
 //  THERE CAN BE ONLY ONE BASE
